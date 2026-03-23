@@ -1,0 +1,6 @@
+@IskraAnalytics.API_HostAddress = http://localhost:5074
+
+GET {{IskraAnalytics.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
