@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import {Inter} from "next/font/google"
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./navbar";
 import Image from "next/image";
 
 const inter = Inter({
@@ -11,37 +10,35 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Искра Льда | Аналитика",
+  description: "Мониторинг и визуализация прогресса"
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  
-  
+}) {
   return (
-    <html
-      lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <body className="antialiased font-sans">
-        <Navbar/>
-        <main className="relative min-h-screen">
-          <div className="fixed inset-0 -z-10 pointer-events-none">
-            <Image 
+
+        {/* ФОН */}
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+          <Image
             src="/background.jpg"
-            alt = "Фон"
+            alt="Фон"
             fill
             className="object-cover"
             priority
-            />
-          </div>
-        
-          <div className="relative z-10">
-            {children}
-          </div>
-          </main>
-        </body>
+          />
+        </div>
+
+        {/* КОНТЕНТ */}
+        <div className="relative z-10">
+          {children}
+        </div>
+
+      </body>
     </html>
   );
 }
-

@@ -1,7 +1,12 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { request } from "../services/api";
+import { LoginRequest } from "../.././models/requests/authRequests";
+import { AuthResponse } from "../.././models/responses/authResponse";
+import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -13,10 +18,87 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
     const [activeTab, setActiveTab] = useState<'login' | 'register'>('login');
     const [showPassword, setShowPassword] = useState(false);
     const [mounted, setMounted] = useState(false)
+    const [error, setError] = useState<string | null>(null);
+
+    const router = useRouter();
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        firstName: '',
+        lastName: '',
+        role: 'Parent'
+    });
+
+    const handleChange = (e:
+        React.ChangeEvent<HTMLInputElement>) => {
+            const {name, value} = e.target;
+            setFormData(prev => ({ ...prev, [name]: value}));
+        };
+    
+    const handleSubmit = async (e: React.FormEvent<HTMLButtonElement> | React.FormEvent) =>
+    {
+        e.preventDefault();
+        setError(null);
+        
+        if(activeTab === 'login') {
+            const loginData: LoginRequest = {
+                email: formData.email,
+                password: formData.password
+            }
+            const res = await request('/Auth/login', 'POST', loginData);
+            console.log("Login payload:", loginData);
+
+            if (res.ok) {
+    const data: AuthResponse = await res.json();
+    localStorage.setItem('token', data.token);
+
+            try {
+                const decoded: any = jwtDecode(data.token);
+
+                const rawRole = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] || decoded.role;
+                const userRole = rawRole?.toLowerCase(); 
+
+                onClose();
+
+                if (userRole === 'admin') {
+                    router.push('/admin/groups');
+                } else {
+                    window.location.reload();
+                }
+            } catch (err) {
+                console.error("Ошибка декодирования", err);
+                window.location.reload();
+            }
+        } else {
+                setError("Неверный логин или пароль")
+            }
+        } else {
+            const res = await request('/Auth/register', 'POST', formData);
+            if(res.ok) {
+                setActiveTab('login');
+            } else {
+                if(formData.password.length < 8){
+                    setError("Пароль должен быть не короче 8 символов");
+                    return
+                }
+                const letters = /[a-zA-Za-Я]/;
+                if(letters.test(formData.password)){
+                    setError("Пароль должен содержать хотя бы одну букву")
+                    return
+                }
+                else {
+                    setError("Ошибка! Возможно такая почта уже есть")
+                }
+            }
+        }
+    };
 
     const setTab = (tab: 'login'| 'register') => {
     setActiveTab(tab);
     setShowPassword(false);
+    setError(null)
         };
 
     useEffect(() => {
@@ -49,20 +131,37 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
                 {activeTab === 'register' && (
                     <div className="flex flex-col space-y-2">
                         <label className="text-xl text-[#064592] font-medium">Имя</label>
-                        <input className="w-full p-4 mb-4 border rounded-xl border-[#064592]" placeholder="Иван" />
-
+                        <input
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                        placeholder="Иван" />
                         <label className="text-xl text-[#064592] font-medium">Фамилия</label>
-                        <input className="w-full p-4 mb-4 border rounded-xl border-[#064592]" placeholder="Иванов" />
+                        <input
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange} 
+                        className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                        placeholder="Иванов" />
                     </div>
                 )}
                 <div className="flex flex-col space-y-2">
                     <label className="text-xl text-[#064592] font-medium">E-mail</label>
-                    <input className="w-full p-4 mb-4 border rounded-xl border-[#064592]" placeholder="example@mail.ru" />
+                    <input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                    placeholder="example@mail.ru" />
                 </div>
                 <div className="flex flex-col space-y-2">
                     <label className="text-xl text-[#064592] font-medium">Пароль</label>
                     <div className="relative group">
                         <input
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Минимум 8 символов"
                             className="w-full p-4 mb-4 border rounded-xl border-[#064592]"
@@ -83,17 +182,28 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
                 </div>
                     {activeTab === 'register' && (
                     <div className="flex flex-col space-y-2">
-                        <label className="text-xl text-[#064592] font-medium">Повторите </label>
+                        <label className="text-xl text-[#064592] font-medium">Повторите пароль</label>
                         <input
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
                             type="password"
                             placeholder="••••••••"
                             className="w-full p-4 mb-4 border rounded-xl border-[#064592]"
                         />
                     </div> 
                 )}
+                {error && (
+                    <p className="text-red-500 text-sm font-medium mb-4 text-center">
+                        {error}
+                    </p>
+                )}
                 <div className="pt-5 flex justify-center">
-                    {/* Добавить OnClick */}
-                    <button className="w-[70%] bg-[#064592] text-white p-4 rounded-xl font-bold text-xl cursor-pointer">{activeTab === 'login' ? 'Войти' : 'Создать аккаунт'}</button>
+                    <button
+                    type="button" 
+                    onClick={(e) => handleSubmit(e)} 
+                    className="w-[70%] bg-[#064592] text-white p-4 rounded-xl font-bold text-xl cursor-pointer">{activeTab === 'login' ? 'Войти' : 'Создать аккаунт'}
+                    </button>
                 </div> 
             </div>
         </div>,
