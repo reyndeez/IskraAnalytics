@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IskraAnalytics.API", "IskraAnalytics.API\IskraAnalytics.API.csproj", "{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IskraAnalytics.Application", "IskraAnalytics.Application\IskraAnalytics.Application.csproj", "{CDFBD44E-496D-4A38-98E8-4264FCC9D691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IskraAnalytics.Infrastructure", "IskraAnalytics.Infrastructure\IskraAnalytics.Infrastructure.csproj", "{0B7830A1-24A6-4D78-A50D-53474C32066B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IskraAnalytics.Domain", "IskraAnalytics.Domain\IskraAnalytics.Domain.csproj", "{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFBD44E-496D-4A38-98E8-4264FCC9D691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFBD44E-496D-4A38-98E8-4264FCC9D691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFBD44E-496D-4A38-98E8-4264FCC9D691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFBD44E-496D-4A38-98E8-4264FCC9D691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7830A1-24A6-4D78-A50D-53474C32066B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7830A1-24A6-4D78-A50D-53474C32066B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7830A1-24A6-4D78-A50D-53474C32066B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7830A1-24A6-4D78-A50D-53474C32066B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92825ED4-103F-4BD8-BE6B-C99873F47A85}
+	EndGlobalSection
+EndGlobal

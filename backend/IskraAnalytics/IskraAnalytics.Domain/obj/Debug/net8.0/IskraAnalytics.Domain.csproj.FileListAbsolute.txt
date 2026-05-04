@@ -1,0 +1,13 @@
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\bin\Debug\net8.0\IskraAnalytics.Domain.deps.json
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\bin\Debug\net8.0\IskraAnalytics.Domain.dll
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\bin\Debug\net8.0\IskraAnalytics.Domain.pdb
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.csproj.AssemblyReference.cache
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.AssemblyInfoInputs.cache
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.AssemblyInfo.cs
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.csproj.CoreCompileInputs.cache
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.sourcelink.json
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.dll
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\refint\IskraAnalytics.Domain.dll
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\IskraAnalytics.Domain.pdb
+D:\IskraAnalytics\backend\IskraAnalytics\IskraAnalytics.Domain\obj\Debug\net8.0\ref\IskraAnalytics.Domain.dll
