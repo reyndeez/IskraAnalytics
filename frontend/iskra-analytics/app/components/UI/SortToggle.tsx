@@ -5,14 +5,12 @@ export function SortToggle(){
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const order = searchParams.get('order') || 'asc';
+    const isDesc = searchParams.get('isDescending') === 'true';
 
     const toggleOrder = () => {
         const params = new URLSearchParams(searchParams.toString());
 
-        const newOrder = order === 'asc' ? 'desc' : 'asc';
-        params.set('order', newOrder);
-
+        params.set('isDescending', (!isDesc).toString());
         params.set('page', '1');
 
         router.replace(`?${params.toString()}`, { scroll: false });
@@ -23,7 +21,7 @@ export function SortToggle(){
             onClick={toggleOrder}
             className="p-2 bg-white rounded-2xl shadow-xl cursor-pointer hover:scale-105 transition"
         >
-            {order === 'asc' ? (
+            {isDesc === true ? (
                 <ArrowDownNarrowWide className="w-9 h-9 text-brand" />
             ) : (
                 <ArrowDownWideNarrow className="w-9 h-9 text-brand" />

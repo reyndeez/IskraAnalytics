@@ -115,48 +115,48 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
 
     return createPortal(
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-            <div className="relative bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md  ">
+            <div className="relative bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md">
                 <button onClick={onClose} 
-                className="absolute top-6 right-6 text-[#808080] hover:text-[#064592] transition-colors cursor-pointer">
+                className="absolute top-6 right-6 text-muted hover:text-brand transition-colors cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#064592" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
                 <div className="flex flex-row gap-8">
-                    <button onClick={() => setTab('login') }className={`text-3xl font-bold text-[#064592] mb-6 cursor-pointer ${activeTab === 'login' ? 'text-[#064592]' : 'text-[#808080]'}`}>
+                    <button onClick={() => setTab('login') }className={`text-3xl font-bold text-brand mb-6 cursor-pointer ${activeTab === 'login' ? 'text-brand' : 'text-[#808080]'}`}>
                         Вход
                     </button>
-                    <button onClick={() => setTab('register') }className={`text-3xl font-bold text-[#064592] mb-6 cursor-pointer ${activeTab === 'register' ? 'text-[#064592]' : 'text-[#808080]'}`}>
+                    <button onClick={() => setTab('register') }className={`text-3xl font-bold text-brand mb-6 cursor-pointer ${activeTab === 'register' ? 'text-brand' : 'text-[#808080]'}`}>
                         Регистрация
                     </button>
                 </div>
                 {activeTab === 'register' && (
                     <div className="flex flex-col space-y-2">
-                        <label className="text-xl text-[#064592] font-medium">Имя</label>
+                        <label className="text-xl text-brand font-medium">Имя</label>
                         <input
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                        className="w-full p-4 mb-4 border rounded-xl border-brand" 
                         placeholder="Иван" />
-                        <label className="text-xl text-[#064592] font-medium">Фамилия</label>
+                        <label className="text-xl text-brand font-medium">Фамилия</label>
                         <input
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange} 
-                        className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                        className="w-full p-4 mb-4 border rounded-xl border-brand" 
                         placeholder="Иванов" />
                     </div>
                 )}
                 <div className="flex flex-col space-y-2">
-                    <label className="text-xl text-[#064592] font-medium">E-mail</label>
+                    <label className="text-xl text-brand font-medium">E-mail</label>
                     <input
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-4 mb-4 border rounded-xl border-[#064592]" 
+                    className="w-full p-4 mb-4 border rounded-xl border-brand" 
                     placeholder="example@mail.ru" />
                 </div>
                 <div className="flex flex-col space-y-2">
-                    <label className="text-xl text-[#064592] font-medium">Пароль</label>
+                    <label className="text-xl text-brand font-medium">Пароль</label>
                     <div className="relative group">
                         <input
                             name="password"
@@ -164,7 +164,7 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
                             onChange={handleChange}
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Минимум 8 символов"
-                            className="w-full p-4 mb-4 border rounded-xl border-[#064592]"
+                            className="w-full p-4 mb-4 border rounded-xl border-brand"
                         />
                         <button 
                             type="button"
@@ -182,14 +182,14 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
                 </div>
                     {activeTab === 'register' && (
                     <div className="flex flex-col space-y-2">
-                        <label className="text-xl text-[#064592] font-medium">Повторите пароль</label>
+                        <label className="text-xl text-brand font-medium">Повторите пароль</label>
                         <input
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
                             type="password"
                             placeholder="••••••••"
-                            className="w-full p-4 mb-4 border rounded-xl border-[#064592]"
+                            className="w-full p-4 mb-4 border rounded-xl border-brand"
                         />
                     </div> 
                 )}
@@ -202,7 +202,7 @@ export default function AuthModal({isOpen, onClose, initialTab}: AuthModalProps 
                     <button
                     type="button" 
                     onClick={(e) => handleSubmit(e)} 
-                    className="w-[70%] bg-[#064592] text-white p-4 rounded-xl font-bold text-xl cursor-pointer">{activeTab === 'login' ? 'Войти' : 'Создать аккаунт'}
+                    className="w-[70%] bg-brand text-white p-4 rounded-xl font-bold text-xl cursor-pointer">{activeTab === 'login' ? 'Войти' : 'Создать аккаунт'}
                     </button>
                 </div> 
             </div>

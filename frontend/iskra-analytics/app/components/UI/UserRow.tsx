@@ -1,7 +1,32 @@
-import { userResponse } from "@/app/models/responses/userResponse";
+import { UserResponse } from "@/app/models/responses/userResponse";
 import { List, Trash2 } from "lucide-react";
+import { ConfirmModal } from "./ConfirmModal";
+import { useState } from "react";
+import { UserService } from "../services/userService";
+import { UserDataModal } from "./UserDataModal";
 
-export function UserRow({user} : {user: userResponse}) {
+export function UserRow({user, onRefresh} : {user: UserResponse, onRefresh: () => void}) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditOpen, setIsEditOpen] = useState(false);
+
+    const handleDelete = async () => {
+        try {
+            await UserService.deleteUsers(user.id);
+            onRefresh();
+        } catch (error: any) {
+            alert(error.message);
+        }
+    };
+
+    const handleUpdateRole = async (userId: string, newRole: string) => {
+        try { 
+            onRefresh();
+        } catch (error: any) {
+            alert("Ошибка при смене роли");
+        }
+    };
+
     return (
         <div className="flex flex-row justify-between gap-4">
             {/* Пользователь */}
@@ -19,9 +44,9 @@ export function UserRow({user} : {user: userResponse}) {
                 {/* Правая часть */}
                 <div className="flex items-end">
                     <span className={`text-2xl font-semibold ${
-                        user.role === 'admin' 
+                        user.role === 'Admin' 
                         ? 'text-red'
-                        : user.role === 'coach'
+                        : user.role === 'Coach'
                         ? 'text-green'
                         : 'text-brand'
                     }`}>
@@ -31,15 +56,30 @@ export function UserRow({user} : {user: userResponse}) {
             </div>            
             {/* Действия с пользователем */}          
             <button className="cursor-pointer rounded-2xl bg-white p-4 text-brand"
-            // onClick={}
+            onClick={() => setIsModalOpen(true)}
             >
                 <Trash2/>
             </button>
             <button className="cursor-pointer rounded-2xl bg-white p-4 text-brand"
-            // onClick={}
+            onClick={() => setIsEditOpen(true)}
             >
                 <List/>
             </button>
+
+            <ConfirmModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onConfirm={handleDelete}
+                title="Удалить пользователя?"
+                message={`Вы уверены, что хотите удалить пользователя ${user.firstName} ${user.lastName} ${user.patronymic}?`}
+            />
+            <UserDataModal
+                isOpen={isEditOpen}
+                onClose={() => setIsEditOpen(false)}
+                user={user}
+                onSave={handleUpdateRole}
+            />
+
         </div>
     );
 }
