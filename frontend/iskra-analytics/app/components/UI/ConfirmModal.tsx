@@ -59,7 +59,7 @@ export function ConfirmModal({ isOpen, onClose, onConfirm, title, message }: Con
                             Удалить
                         </button>                        
                         <button 
-                            className="text-brand font-medium text-2xl cursor-pointer hover:text-[#41479B] border px-4 py-2 shadow-md hover:border-[#41479B] hover:bg-[#41479B]/40 rounded-xl transition-all duration-200 hover:shadow-lg"
+                            className="text-brand font-medium text-2xl cursor-pointer hover:text-[#41479B] border px-4 py-2 shadow-md hover:border-[#41479B] hover:bg-[#41479B]/10 rounded-xl transition-all duration-200 hover:shadow-lg"
                             onClick={onClose}
                         >
                             Отмена

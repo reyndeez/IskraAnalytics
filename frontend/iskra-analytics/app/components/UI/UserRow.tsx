@@ -19,11 +19,13 @@ export function UserRow({user, onRefresh} : {user: UserResponse, onRefresh: () =
         }
     };
 
-    const handleUpdateRole = async (userId: string, newRole: string) => {
+    const handleUpdateRole = async (userId: string, roleId: string) => {
         try { 
+            await UserService.updateUserRole(userId, roleId);
             onRefresh();
+            setIsEditOpen(false);
         } catch (error: any) {
-            alert("Ошибка при смене роли");
+            alert(error.message || "Ошибка при смене роли");
         }
     };
 

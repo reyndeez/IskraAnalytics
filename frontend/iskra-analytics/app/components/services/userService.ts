@@ -27,5 +27,16 @@ export const UserService = {
         }
 
         return true;
+    },
+
+    updateUserRole: async (userId: string, roleId: string) => {
+        const res = await request(`/Users/${userId}/role`, 'PATCH', roleId);
+
+        if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.message || "Не удалось обновить роль");
+        }
+
+        return true;
     }
 }

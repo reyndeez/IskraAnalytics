@@ -9,7 +9,6 @@ const tabs = [
     { label: "Пользователи", href: "/admin/users", icon: <Users size={24} /> },
     { label: "Студенты", href: "/admin/students", icon: <School size={24} /> },
     { label: "Метрики", href: "/admin/metrics", icon: <Sigma size={24} /> },
-    { label: "Роли", href: "/admin/roles", icon: <Palette size={24} /> },
 ];
 
 export default function AdminSidebar() {
