@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -82,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 718,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,20 +94,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Program.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.API\\Program.cs",
               "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Program.cs",
               "RelativeToolTip": "IskraAnalytics.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIgAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAADwv2cAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:57:32.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:57:32.33Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\User.cs",
@@ -115,12 +114,11 @@
               "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:54:43.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:54:43.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Result.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Result.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\Result.cs",
@@ -128,12 +126,11 @@
               "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\Result.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:54:42.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:54:42.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Metric.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Metric.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\Metric.cs",
@@ -141,12 +138,11 @@
               "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\Metric.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:54:42.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:54:42.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Group.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Group.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\Group.cs",
@@ -154,18 +150,17 @@
               "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\Group.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:54:40.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:54:40.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\appsettings.json",
               "RelativeDocumentMoniker": "IskraAnalytics.API\\appsettings.json",
               "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\appsettings.json",
               "RelativeToolTip": "IskraAnalytics.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-07T16:51:04.255Z",
               "EditorCaption": ""
@@ -180,8 +175,7 @@
               "RelativeToolTip": "IskraAnalytics.API\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-06-07T16:42:57.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:42:57.192Z"
             },
             {
               "$type": "Document",
@@ -205,8 +199,7 @@
               "RelativeToolTip": "IskraAnalytics.Application\\Services\\AnalyticService.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAwwD8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T17:22:51.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T17:22:51.496Z"
             },
             {
               "$type": "Document",
