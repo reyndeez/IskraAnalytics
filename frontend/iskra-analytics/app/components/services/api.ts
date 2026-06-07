@@ -1,5 +1,5 @@
 //const API_URL = "http://localhost:5172/api";
-const API_URL = "http://iskra-analytics-reyndeez.amvera.io:5000/api";
+const API_URL = "http://153.80.184.141:5000";
 //ПОМЕНЯТЬ
 
 const getCookie = (name: string): string | null => {
