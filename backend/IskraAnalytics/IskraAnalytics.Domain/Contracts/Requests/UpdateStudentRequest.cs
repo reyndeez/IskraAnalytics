@@ -9,6 +9,7 @@ namespace IskraAnalytics.Domain.Contracts.Requests
         [Required(ErrorMessage = "Это поле не может быть пустым")] string Patronymic,
         [Required(ErrorMessage = "Это поле не может быть пустым")] DateTime BirthDate,
         [Required(ErrorMessage = "Это поле не может быть пустым")] PlayerPosition Amplua,
-        string? PhotoUrl
+        string? PhotoUrl,
+        [Required(ErrorMessage = "Необходимо указать группу")] Guid GroupId
         );
 }

@@ -5,9 +5,11 @@
         Guid StudentId,
         string StudentName,
         double Score,
+        string CreatedAt,  
+        double LastScore,     
+        string LastCreatedAt,
         string Unit,
-        string CreatedAt,
         bool IsSelectedChild
-        );
+    );
 
 }

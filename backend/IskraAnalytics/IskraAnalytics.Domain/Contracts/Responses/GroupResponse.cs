@@ -2,10 +2,10 @@
 {
     public record GroupResponse(
         Guid Id,
-        string Name,
-        Guid CoachId,
-        string CoachLastName,
-        string CoachFirstName,
-        string CoachPatronymic
+        string Name
+        //Guid CoachId,
+        //string CoachLastName,
+        //string CoachFirstName,
+        //string CoachPatronymic
         );
 }

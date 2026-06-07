@@ -1,131 +1,120 @@
 'use client'
 
-import React from 'react';
-import { 
-  Users, 
-  UserPlus, 
-  Calendar, 
-  ChevronLeft, 
-  MoreVertical, 
-  Trash2, 
-  GraduationCap 
-} from 'lucide-react';
-import Link from 'next/link';
+import { groupService } from "@/app/components/services/groupService";
+import { Pagination } from "@/app/components/UI/Pagination";
+import { SearchInput } from "@/app/components/UI/SearchInput";
+import { SortSelector } from "@/app/components/UI/SortSelector";
+import { SortToggle } from "@/app/components/UI/SortToggle";
+import { ActivitySelector } from "@/app/components/UI/ActivitySelector";
+import { GroupRow } from "@/app/components/UI/GroupRow"; 
+import { GroupDataModal } from "@/app/components/UI/GroupDataModal";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Plus } from "lucide-react";
 
-// Временные данные для наброска
-const groupData = {
-  id: "1",
-  name: "Младшая группа «Снежинки»",
-  coach: "Александр Морозов",
-  level: "Начинающие",
-  schedule: "Пн, Ср, Пт — 14:00",
-  studentsCount: 12,
-  students: [
-    { id: 1, name: "Иванов Максим", age: 7, status: "Active" },
-    { id: 2, name: "Петрова Анна", age: 6, status: "Active" },
-    { id: 3, name: "Сидоров Артем", age: 8, status: "Warning" },
-  ]
-};
+const SORT_OPTIONS = [
+    { id: 'name', name: 'По названию группы' },
+    { id: 'coach', name: 'По тренеру' }
+];
 
-export default function GroupPage() {
-  return (
-    <div className="space-y-8">
-      {/* Шапка с хлебными крошками */}
-      <div className="flex items-center justify-between">
-        <div className="space-y-1">
-          <Link 
-            href="/admin/groups" 
-            className="flex items-center gap-2 text-gray-500 hover:text-brand transition-colors mb-2"
-          >
-            <ChevronLeft size={20} />
-            <span>Назад к списку групп</span>
-          </Link>
-          <h1 className="text-4xl font-black text-gray-900">{groupData.name}</h1>
+export default function GroupsPage() {
+    const [isLoading, setIsLoading] = useState(true);
+    const searchParams = useSearchParams();
+    const [groupData, setGroupData] = useState<any | null>(null);
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
+
+    const search = searchParams.get('search') || "";
+    const sortId = searchParams.get('sortId') || "name";
+    const isDescending = searchParams.get('isDescending') === 'true';
+    const page = Number(searchParams.get('page')) || 1;
+    const filter = searchParams.get('filter') || "active"; 
+
+    const loadGroups = async () => {
+        try {
+            setIsLoading(true);
+            const response = await groupService.findGroups({
+                search,
+                sortId,
+                isDescending,
+                page,
+                pageSize: 6,
+                filter
+            });
+            setGroupData(response);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        loadGroups();
+    }, [searchParams]);
+
+    return (
+        <div className="px-4 py-6 md:px-0">            
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-brand">Панель групп</h1>
+            <div className="mt-6 md:mt-10 p-4 sm:p-6 md:p-8 bg-brand rounded-3xl md:rounded-4xl">
+                {/* Адаптивная панель фильтров */}
+                <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">
+                    {/* Левая часть: Поиск и кнопка создания */}
+                    <div className="flex items-center gap-3 sm:gap-4 w-full lg:w-auto">
+                        <div className="flex-1 lg:flex-none">
+                            <SearchInput />
+                        </div>
+                        <button 
+                            onClick={() => setIsCreateOpen(true)}
+                            className="cursor-pointer flex items-center justify-center shrink-0 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-4 text-brand hover:scale-105 transition-transform"
+                            title="Добавить группу"
+                        >
+                            <Plus size={20} className="sm:w-6 sm:h-6" />
+                        </button>
+                    </div>
+                    {/* Правая часть: Селекторы и сортировка */}
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full lg:w-auto">
+                        <div className="flex-1 min-w-32.5 lg:flex-none">
+                            <ActivitySelector />
+                        </div>
+                        <div className="flex-1 min-w-37.5 lg:flex-none">
+                            <SortSelector sorts={SORT_OPTIONS} />                        
+                        </div>
+                        <div className="shrink-0">
+                            <SortToggle />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-6 flex flex-col gap-4">
+                    {isLoading ? (
+                        <div className="text-white text-center text-xl py-10 font-medium">Загрузка...</div>
+                    ) : (
+                        groupData?.groups.map((group: any) => (
+                            <GroupRow key={group.id} group={group} onRefresh={loadGroups} />
+                        ))
+                    )}
+                    
+                    {!isLoading && groupData?.groups.length === 0 && (
+                        <div className="text-white text-center text-xl py-10 font-medium">Группы не найдены</div>
+                    )}
+                </div>
+
+                {/* Блок пагинации */}
+                <div className="flex justify-center mt-6 md:mt-8 overflow-x-auto w-full">
+                    <Pagination
+                        totalPages={groupData?.totalPages || 1} 
+                        currentPage={page} 
+                    />
+                </div>
+            </div>
+
+            <GroupDataModal
+                isOpen={isCreateOpen}
+                onClose={() => setIsCreateOpen(false)}
+                group={null}
+                onRefresh={loadGroups}
+                mode="create"
+            />
         </div>
-        
-        <button className="flex items-center gap-2 bg-brand text-white px-6 py-3 rounded-2xl hover:bg-[#053a7a] transition-all shadow-lg font-medium">
-          <UserPlus size={20} />
-          Добавить студента
-        </button>
-      </div>
-
-      {/* Карточки с инфо */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <InfoCard 
-          icon={<Users className="text-blue-600" />} 
-          label="Тренер" 
-          value={groupData.coach} 
-        />
-        <InfoCard 
-          icon={<Calendar className="text-purple-600" />} 
-          label="Расписание" 
-          value={groupData.schedule} 
-        />
-        <InfoCard 
-          icon={<GraduationCap className="text-orange-600" />} 
-          label="Уровень" 
-          value={groupData.level} 
-        />
-      </div>
-
-      {/* Таблица студентов */}
-      <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
-        <div className="p-8 border-b border-gray-50 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-800">Список состава</h2>
-          <span className="bg-blue-50 text-brand px-4 py-1 rounded-full text-sm font-semibold">
-            Всего: {groupData.studentsCount}
-          </span>
-        </div>
-        
-        <table className="w-full text-left">
-          <thead className="bg-gray-50 text-gray-500 uppercase text-sm font-semibold">
-            <tr>
-              <th className="px-8 py-4">Имя студента</th>
-              <th className="px-8 py-4">Возраст</th>
-              <th className="px-8 py-4">Статус</th>
-              <th className="px-8 py-4 text-right">Действия</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-50">
-            {groupData.students.map((student) => (
-              <tr key={student.id} className="hover:bg-gray-50/50 transition-colors">
-                <td className="px-8 py-5 font-medium text-gray-900">{student.name}</td>
-                <td className="px-8 py-5 text-gray-600">{student.age} лет</td>
-                <td className="px-8 py-5">
-                  <span className={`px-3 py-1 rounded-lg text-xs font-bold ${
-                    student.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
-                  }`}>
-                    {student.status === 'Active' ? 'АКТИВЕН' : 'ВНИМАНИЕ'}
-                  </span>
-                </td>
-                <td className="px-8 py-5 text-right space-x-2">
-                  <button className="p-2 text-gray-400 hover:text-red-600 transition-colors">
-                    <Trash2 size={20} />
-                  </button>
-                  <button className="p-2 text-gray-400 hover:text-gray-600">
-                    <MoreVertical size={20} />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-// Вспомогательный компонент для карточек
-function InfoCard({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) {
-  return (
-    <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-start gap-4">
-      <div className="p-3 bg-gray-50 rounded-2xl">
-        {icon}
-      </div>
-      <div>
-        <p className="text-sm text-gray-400 font-medium">{label}</p>
-        <p className="text-lg font-bold text-gray-800">{value}</p>
-      </div>
-    </div>
-  );
+    );
 }

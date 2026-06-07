@@ -1,5 +1,5 @@
 import { UserResponse } from "@/app/models/responses/userResponse";
-import { List, Trash2 } from "lucide-react";
+import { List, Pencil, Trash2 } from "lucide-react";
 import { ConfirmModal } from "./ConfirmModal";
 import { useState } from "react";
 import { UserService } from "../services/userService";
@@ -65,7 +65,8 @@ export function UserRow({user, onRefresh} : {user: UserResponse, onRefresh: () =
             <button className="cursor-pointer rounded-2xl bg-white p-4 text-brand"
             onClick={() => setIsEditOpen(true)}
             >
-                <List/>
+                <Pencil/>
+                {/* <List/> */}
             </button>
 
             <ConfirmModal

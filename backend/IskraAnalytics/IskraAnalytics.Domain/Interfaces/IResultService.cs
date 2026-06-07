@@ -10,5 +10,7 @@ namespace IskraAnalytics.Domain.Interfaces
         Task<ResultResponse> GetResultByIdAsync(Guid id);
         Task<ResultResponse> UpdateResultAsync(Guid id, UpdateResultRequest request);
         Task<List<ResultResponse>> GetAllResultsByStudentId(Guid studentId);
+        Task<List<MeasurementResponse>> GetResultsForMeasurementAsync(Guid groupId, Guid metricId, DateTime date);
+        Task<Guid> UpsertResultAsync(UpsertResultRequest request, Guid coachId);
     }
 }

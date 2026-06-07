@@ -1,7 +1,6 @@
 ﻿using IskraAnalytics.Domain.Contracts.Requests;
 using IskraAnalytics.Domain.Contracts.Responses;
 using IskraAnalytics.Domain.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -10,7 +9,7 @@ namespace IskraAnalytics.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize(Roles = "Coach")]
+    [Authorize]
     public class StudentsController : ControllerBase
     {
         readonly IStudentService _studentService;
@@ -20,6 +19,15 @@ namespace IskraAnalytics.API.Controllers
             _studentService = studentService;
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("find")]
+        public async Task<ActionResult<StudentPagedResponse>> GetPagedStudents([FromQuery] FindStudentRequest request)
+        {
+            var result = await _studentService.FindStudentsAsync(request);
+            return Ok(result);
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("register")]
         public async Task<ActionResult> CreateStudent([FromBody] CreateStudentRequest request)
         {
@@ -27,7 +35,7 @@ namespace IskraAnalytics.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(Roles = "User")]
         [HttpGet("my-children")]
         public async Task<ActionResult<IEnumerable<StudentResponse>>> GetChildren()
         {
@@ -50,8 +58,16 @@ namespace IskraAnalytics.API.Controllers
             }
         }
 
+        [Authorize(Roles = "Coach")]
+        [HttpGet("details/{studentId}")]
+        public async Task<ActionResult<StudentResponse>> GetStudentDetails(Guid studentId)
+        {
+            var result = await _studentService.GetStudentByIdAsync(studentId);
+            return Ok(result);
+        }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
+        [Authorize(Roles = "User")]
         [HttpPost("bind")]
         public async Task<ActionResult> BindChild([FromBody] BindChildRequest request)
         {
@@ -76,37 +92,43 @@ namespace IskraAnalytics.API.Controllers
             }
         }
 
-        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<StudentResponse>>> GetAllStudents()
         {
             var result = await _studentService.GetAllStudentsAsync();
             return Ok(result);
         }
 
-        //[HttpGet("{studentId}")]
-        //public async Task<StudentResponse> GetStudentById(Guid studentId)
-        //{
-
-        //}
-
-        [HttpGet("{groupId}")]
-        public async Task<ActionResult<IEnumerable<StudentResponse>>> GetAllStudentsByGroupId(Guid id)
-        {   
-            var result = await _studentService.GetStudentsByGroupAsync(id);
+        [Authorize(Roles = "Coach")]
+        [HttpGet("by-group/{groupId:guid}")]
+        public async Task<ActionResult<IEnumerable<StudentResponse>>> GetAllStudentsByGroupId(Guid groupId)
+        {
+            var result = await _studentService.GetStudentsByGroupAsync(groupId);
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{studentId}")]
-        public async Task<ActionResult<StudentResponse>> UpdateStudentAsync(Guid studentId, UpdateStudentRequest request)
+        public async Task<ActionResult<StudentResponse>> UpdateStudentAsync(Guid studentId, [FromBody] UpdateStudentRequest request)
         {
             var result = await _studentService.UpdateStudentAsync(studentId, request);
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{studentId}")]
         public async Task<IActionResult> DeleteStudentAsync(Guid studentId)
         {
             await _studentService.SoftDeleteAsync(studentId);
+            return NoContent();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id:guid}/restore")]
+        public async Task<IActionResult> RestoreStudent(Guid id)
+        {
+            await _studentService.RestoreStudentAsync(id);
             return NoContent();
         }
     }

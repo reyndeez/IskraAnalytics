@@ -3,7 +3,9 @@ export interface LeaderboardResponse {
     studentId: string;
     studentName: string;
     score: number;
-    unit: string;
     createdAt: string;
+    lastScore: number;
+    lastCreatedAt: string;
+    unit: string;
     isSelectedChild: boolean;
 }

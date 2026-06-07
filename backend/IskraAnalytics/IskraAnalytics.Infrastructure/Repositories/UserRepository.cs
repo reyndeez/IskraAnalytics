@@ -1,4 +1,5 @@
-﻿using IskraAnalytics.Domain.Contracts.Responses;
+﻿using IskraAnalytics.Domain.Contracts.Requests;
+using IskraAnalytics.Domain.Contracts.Responses;
 using IskraAnalytics.Domain.Entities;
 using IskraAnalytics.Domain.Interfaces;
 using IskraAnalytics.Infrastructure.Data;
@@ -24,16 +25,10 @@ namespace IskraAnalytics.Infrastructure.Repositories
         }
 
         //Получить с фильтрацией, сортировкой, пагинацией и поиском
-        public async Task<(List<UserResponse> users, int TotalCount)> FindUsersAsync(
-            string? search,
-            string? roleId,
-            string? sortId,
-            bool? isDescending,
-            int page,
-            int pageSize)
+        public async Task<(List<UserResponse> users, int TotalCount)> FindUsersAsync(FindUserRequest request)
         {
-            page = page <= 0 ? 1 : page;
-            pageSize = pageSize <= 0 ? 10 : pageSize;
+            var page = request.Page <= 0 ? 1 : request.Page;
+            var pageSize = request.PageSize <= 0 ? 10 : request.PageSize;
 
             var query = from user in _dbContext.Users
                         join userRole in _dbContext.UserRoles on user.Id equals userRole.UserId
@@ -41,9 +36,9 @@ namespace IskraAnalytics.Infrastructure.Repositories
                         select new { user, role };
 
             //Поиск
-            if (!string.IsNullOrWhiteSpace(search))
+            if (!string.IsNullOrWhiteSpace(request.Search))
             {
-                var pattern = $"%{search.Trim()}%";
+                var pattern = $"%{request.Search.Trim()}%";
 
                 query = query.Where(u =>
                     EF.Functions.ILike(u.user.Email ?? "", pattern) ||
@@ -54,26 +49,26 @@ namespace IskraAnalytics.Infrastructure.Repositories
             }
 
             //Фильтр
-            if (!string.IsNullOrEmpty(roleId))
+            if (!string.IsNullOrEmpty(request.RoleId))
             {
-                if (Guid.TryParse(roleId, out var roleGuid))
+                if (Guid.TryParse(request.RoleId, out var roleGuid))
                 {
                     query = query.Where(u => u.role.Id == roleGuid);
                 }
             }
 
             //Сортировка
-            query = sortId switch
+            query = request.SortId switch
             {
-                "name" => isDescending == true
+                "name" => request.IsDescending == true
                     ? query.OrderByDescending(x => x.user.FirstName)
                     : query.OrderBy(x => x.user.FirstName),
 
-                "role" => isDescending == true
+                "role" => request.IsDescending == true
                     ? query.OrderByDescending(x => x.role.Name)
                     : query.OrderBy(x => x.role.Name),
 
-                "date" => isDescending == true
+                "date" => request.IsDescending == true
                     ? query.OrderByDescending(x => x.user.CreatedAt)
                     : query.OrderBy(x => x.user.CreatedAt),
 
@@ -99,5 +94,14 @@ namespace IskraAnalytics.Infrastructure.Repositories
             return (users, totalCount);
         }
 
+        //Удалить пользователя
+        public async Task DeleteUserAsync(User user)
+        {
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new Exception("Ошибка при удалении пользователя через Identity");
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using IskraAnalytics.Domain.Enums;
-
-namespace IskraAnalytics.Domain.Contracts.Responses
+﻿namespace IskraAnalytics.Domain.Contracts.Responses
 {
     public record StudentResponse (
         Guid Id,
@@ -11,6 +9,7 @@ namespace IskraAnalytics.Domain.Contracts.Responses
         string Amplua,
         string AccessCode,
         Guid GroupId,
-        string GroupName
+        string GroupName,
+        bool IsActive
         );
 }

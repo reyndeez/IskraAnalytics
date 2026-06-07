@@ -1,5 +1,6 @@
-﻿using IskraAnalytics.Domain.Interfaces;
-using IskraAnalytics.Domain.Contracts.Responses;
+﻿using IskraAnalytics.Domain.Contracts.Responses;
+using IskraAnalytics.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IskraAnalytics.API.Controllers
@@ -15,6 +16,7 @@ namespace IskraAnalytics.API.Controllers
             _roleService = roleService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<List<RoleResponse>>> GetAllRoles()
         {

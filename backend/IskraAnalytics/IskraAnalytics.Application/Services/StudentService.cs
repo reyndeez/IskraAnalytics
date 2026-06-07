@@ -3,7 +3,6 @@ using IskraAnalytics.Domain.Contracts.Requests;
 using IskraAnalytics.Domain.Contracts.Responses;
 using IskraAnalytics.Domain.Entities;
 using IskraAnalytics.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace IskraAnalytics.Application.Services
 {
@@ -19,6 +18,20 @@ namespace IskraAnalytics.Application.Services
             _mapper = mapper;
             _groupRepository = groupRepository;
             _userRepository = userRepository;
+        }
+
+        //Найти воспитанников
+        public async Task<StudentPagedResponse> FindStudentsAsync(FindStudentRequest request)
+        {
+            var (students, totalCount) = await _studentRepository.FindStudentsAsync(request);
+            var totalPages = (int)Math.Ceiling((double)totalCount / request.PageSize);
+
+            return new StudentPagedResponse(
+                Students: students,
+                TotalCount: totalCount,
+                TotalPages: totalPages,
+                CurrentPage: request.Page
+            );
         }
 
         //Создать воспитанника
@@ -49,7 +62,7 @@ namespace IskraAnalytics.Application.Services
         //Удалить воспитанника
         public async Task SoftDeleteAsync(Guid studentId)
         {
-            var student = await _studentRepository.GetByIdAsync(studentId);
+            var student = await _studentRepository.GetStudentByIdAsync(studentId);
             if (student != null)
             {
                 student.IsActive = false;
@@ -82,10 +95,25 @@ namespace IskraAnalytics.Application.Services
             return _mapper.Map<List<StudentResponse>>(students).ToList();
         }
 
+        //Получить воспитанника по id
+        public async Task<StudentResponse> GetStudentByIdAsync(Guid studentId)
+        {
+            var student = await _studentRepository.GetStudentByIdAsync(studentId);
+
+            if (student != null)
+            {
+                return _mapper.Map<StudentResponse>(student);
+            }
+            else
+            {
+                throw new Exception("Воспитанника с указанным id не существует");
+            }
+        }
+
         //Изменить данные воспитанника
         public async Task<StudentResponse> UpdateStudentAsync(Guid studentId, UpdateStudentRequest request)
         {
-            var student = await _studentRepository.GetByIdAsync(studentId);
+            var student = await _studentRepository.GetStudentByIdAsync(studentId);
 
             if (student != null)
             {
@@ -99,6 +127,8 @@ namespace IskraAnalytics.Application.Services
                 throw new Exception("Воспитанника с указанным id не существует");
             }
         }
+
+        //Связать ребенка с родителем
         public async Task BindChildWithParentAsync(string code, Guid userId)
         {
             var student = await _studentRepository.GetByAccessCodeAsync(code);
@@ -112,6 +142,12 @@ namespace IskraAnalytics.Application.Services
             student.Parents.Add(user);
 
             await _studentRepository.UpdateAsync(student);
+        }
+
+        //Восстановить студента
+        public async Task RestoreStudentAsync(Guid id)
+        {
+            await _studentRepository.RestoreStudentAsync(id);
         }
     }
 }

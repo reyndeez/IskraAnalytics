@@ -11,7 +11,7 @@ namespace IskraAnalytics.Domain.Entities
         public string? PhotoUrl { get; set; }
 
         //При новом запуске БД убрать знак вопроса!!!
-        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public bool IsActive { get; set; } = true;
 

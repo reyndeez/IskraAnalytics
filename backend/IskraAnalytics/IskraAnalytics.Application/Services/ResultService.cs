@@ -10,12 +10,16 @@ namespace IskraAnalytics.Application.Services
     {
         readonly IResultRepository _resultRepository;
         readonly IStudentRepository _studentRepository;
+        readonly IGroupRepository _groupRepository;
+        readonly IMetricRepository _metricRepository;
         readonly IMapper _mapper;
-        public ResultService(IResultRepository resultRepository, IMapper mapper, IStudentRepository studentRepository)
+        public ResultService(IResultRepository resultRepository, IMapper mapper, IStudentRepository studentRepository, IGroupRepository groupRepository, IMetricRepository metricRepository)
         {
             _resultRepository = resultRepository;
             _mapper = mapper;
             _studentRepository = studentRepository;
+            _groupRepository = groupRepository;
+            _metricRepository = metricRepository;
         }
 
         //Получить результат по id
@@ -28,7 +32,7 @@ namespace IskraAnalytics.Application.Services
         //Получить список результатов по id воспитанника
         public async Task<List<ResultResponse>> GetAllResultsByStudentId(Guid studentId)
         {
-            var student = await _studentRepository.GetByIdAsync(studentId);
+            var student = await _studentRepository.GetStudentByIdAsync(studentId);
 
             if(student == null)
             {
@@ -39,6 +43,36 @@ namespace IskraAnalytics.Application.Services
                 var result = await _resultRepository.GetAllResultByStudentIdAsync(studentId);
                 return _mapper.Map<List<ResultResponse>>(result);
             }
+        }
+
+        //Получить список результатов по метрике, группе и дате
+        public async Task<List<MeasurementResponse>> GetResultsForMeasurementAsync(Guid groupId, Guid metricId, DateTime date)
+        {
+            var group = await _groupRepository.GetByIdAsync(groupId);
+            var metric = await _metricRepository.GetMetricByIdAsync(metricId);
+
+            if (metric == null || group == null)
+            {
+                throw new Exception("Метрика или группа с таким id не существует");
+            }
+
+            var results = await _resultRepository.GetResultsForMeasurementAsync(groupId, metricId, date, metric);
+
+            return _mapper.Map<List<MeasurementResponse>>(results);
+        }
+
+        //Обновление значения результата
+        public async Task<Guid> UpsertResultAsync(UpsertResultRequest request, Guid coachId)
+        {
+            var utcDate = DateTime.SpecifyKind(request.Date, DateTimeKind.Utc);
+
+            return await _resultRepository.UpsertResultAsync(
+                request.ResultId,
+                request.StudentId,
+                request.MetricId,
+                utcDate,
+                request.Value,
+                coachId);
         }
 
         //Удалить результат

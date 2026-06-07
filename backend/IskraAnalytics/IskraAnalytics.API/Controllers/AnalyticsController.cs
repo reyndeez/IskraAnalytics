@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IskraAnalytics.API.Controllers
 {
-    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "User")]
     public class AnalyticsController : ControllerBase
     {
         readonly IAnalyticService _analyticsService;

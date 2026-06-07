@@ -33,18 +33,27 @@ namespace IskraAnalytics.Application.Services
             if (metric == null) throw new Exception("Метрика не найдена");
 
             var results = await _resultRepository.GetResultsByGroupAndMetric(group.Id, metricId);
-
             if (!results.Any()) return new List<LeaderBoardResponse>();
 
             var leaderboardData = results
+                .Where(r => r.Value > 0)
                 .GroupBy(r => r.StudentId)
-                .Select(g => new
+                .Select(g =>
                 {
-                    Id = g.Key,
-                    BestValue = metric.IsAscending ? g.Min(r => r.Value) : g.Max(r => r.Value),
-                    Student = g.First().Student,
-                    CreatedAt = g.First().CreatedAt,
-                });
+                    var bestRecord = metric.IsAscending ? g.MinBy(r => r.Value) : g.MaxBy(r => r.Value);
+
+                    var lastRecord = g.MaxBy(r => r.CreatedAt);
+
+                    return new
+                    {
+                        Id = g.Key,
+                        Student = bestRecord.Student,
+                        BestValue = bestRecord.Value,
+                        BestDate = bestRecord.CreatedAt,
+                        LastValue = lastRecord.Value,
+                        LastDate = lastRecord.CreatedAt
+                    };
+                }).ToList();
 
             var orderedData = metric.IsAscending
                 ? leaderboardData.OrderBy(x => x.BestValue).ToList()
@@ -57,8 +66,10 @@ namespace IskraAnalytics.Application.Services
                     ? $"{item.Student.LastName} {item.Student.FirstName}"
                     : $"Спортсмен #{item.Id.ToString().Substring(0, 4)}",
                 Score: item.BestValue,
+                CreatedAt: item.BestDate.ToString("d"),
+                LastScore: item.LastValue,
+                LastCreatedAt: item.LastDate.ToString("d"),
                 Unit: metric.Unit.ToString(),
-                CreatedAt: item.CreatedAt.ToString("d"),
                 IsSelectedChild: item.Id == studentId
             )).ToList();
 

@@ -16,6 +16,20 @@ namespace IskraAnalytics.Application.Services
             _mapper = mapper;
         }
 
+        //Найти метрики
+        public async Task<MetricPagedResponse> FindMetricsAsync(FindMetricRequest request)
+        {
+            var (metrics, totalCount) = await _metricRepository.FindMetricsAsync(request);
+            var totalPages = (int)Math.Ceiling((double)totalCount / request.PageSize);
+
+            return new MetricPagedResponse(
+                Metrics: metrics,
+                TotalCount: totalCount,
+                TotalPages: totalPages,
+                CurrentPage: request.Page
+            );
+        }
+
         //Получить метрику по id
         public async Task<MetricResponse> GetMetricByIdAsync(Guid id)
         {
@@ -28,6 +42,13 @@ namespace IskraAnalytics.Application.Services
         {
             var metric = await _metricRepository.GetAllActiveMetricsAsync();
             return _mapper.Map<List<MetricResponse>>(metric);
+        }
+
+        //Получить все метрики для селектора
+        public async Task<List<MetricSelectorResponse>> GetMetricsForSelectorAsync()
+        {
+            var metrics = await _metricRepository.GetAllActiveMetricsAsync();
+            return _mapper.Map<List<MetricSelectorResponse>>(metrics);
         }
 
         //Получить все метрики
@@ -78,6 +99,11 @@ namespace IskraAnalytics.Application.Services
             await _metricRepository.CreateMetricAsync(metric);
             return _mapper.Map<MetricResponse>(metric);
         }
-
+        
+        //Восстановить метрику
+        public async Task RestoreMetricAsync(Guid id)
+        {
+            await _metricRepository.RestoreMetricAsync(id);
+        }
     }
 }

@@ -147,7 +147,7 @@
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
-    "Method": "GetAllActiveGroups",
+    "Method": "GetAllGroups",
     "RelativePath": "api/Groups",
     "HttpMethod": "GET",
     "IsController": true,
@@ -198,6 +198,42 @@
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
+    "Method": "RestoreGroup",
+    "RelativePath": "api/Groups/{id}/restore",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
+    "Method": "GetAllActiveGroups",
+    "RelativePath": "api/Groups/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.GroupResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
     "Method": "CreateGroup",
     "RelativePath": "api/Groups/create",
     "HttpMethod": "POST",
@@ -229,6 +265,97 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
+    "Method": "GetPagedGroups",
+    "RelativePath": "api/Groups/find",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Filter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDescending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IskraAnalytics.Domain.Contracts.Responses.GroupPagedResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
+    "Method": "GetGroupsByCoachId",
+    "RelativePath": "api/Groups/my-groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.GroupResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.GroupsController",
+    "Method": "GetGroupsWithStudentsByCoachId",
+    "RelativePath": "api/Groups/my-groups-with-students",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.GroupWithStudentsResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "IskraAnalytics.API.Controllers.MetricsController",
     "Method": "GetAllMetrics",
     "RelativePath": "api/Metrics",
@@ -247,6 +374,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.MetricsController",
+    "Method": "RestoreMetric",
+    "RelativePath": "api/Metrics/{id}/restore",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.MetricsController",
@@ -330,6 +473,77 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.MetricsController",
+    "Method": "GetPagedMetrics",
+    "RelativePath": "api/Metrics/find",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Filter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDescending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IskraAnalytics.Domain.Contracts.Responses.MetricPagedResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.MetricsController",
+    "Method": "GetMetricsForSelector",
+    "RelativePath": "api/Metrics/selector",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.MetricSelectorResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.ResultsController",
@@ -431,6 +645,68 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "IskraAnalytics.API.Controllers.ResultsController",
+    "Method": "GetResultsForMeasurement",
+    "RelativePath": "api/Results/measurements",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GroupId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "MetricId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Date",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.MeasurementResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.ResultsController",
+    "Method": "UpsertResult",
+    "RelativePath": "api/Results/upsert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "IskraAnalytics.Domain.Contracts.Requests.UpsertResultRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "IskraAnalytics.API.Controllers.RolesController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Roles",
@@ -452,54 +728,19 @@
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
-    "Method": "GetAllStudents",
-    "RelativePath": "api/Students",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.StudentResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
-    "Method": "GetAllStudentsByGroupId",
-    "RelativePath": "api/Students/{groupId}",
-    "HttpMethod": "GET",
+    "Method": "RestoreStudent",
+    "RelativePath": "api/Students/{id}/restore",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "groupId",
-        "Type": "",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.StudentResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
@@ -550,6 +791,26 @@
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
+    "Method": "GetAllStudents",
+    "RelativePath": "api/Students/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.StudentResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
     "Method": "BindChild",
     "RelativePath": "api/Students/bind",
     "HttpMethod": "POST",
@@ -563,6 +824,109 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
+    "Method": "GetAllStudentsByGroupId",
+    "RelativePath": "api/Students/by-group/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IskraAnalytics.Domain.Contracts.Responses.StudentResponse, IskraAnalytics.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
+    "Method": "GetStudentDetails",
+    "RelativePath": "api/Students/details/{studentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IskraAnalytics.Domain.Contracts.Responses.StudentResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
+    "Method": "GetPagedStudents",
+    "RelativePath": "api/Students/find",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Filter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDescending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IskraAnalytics.Domain.Contracts.Responses.StudentPagedResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "IskraAnalytics.API.Controllers.StudentsController",
@@ -599,5 +963,93 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.UsersController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Users/{id}/role",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "newRoleId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.UsersController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IskraAnalytics.API.Controllers.UsersController",
+    "Method": "FindUser",
+    "RelativePath": "api/Users/find",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RoleId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDescending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IskraAnalytics.Domain.Contracts.Responses.UserPagedResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

@@ -8,7 +8,7 @@ namespace IskraAnalytics.API.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize]
     public class MetricsController : ControllerBase
     {
         readonly IMetricService _metricService;
@@ -16,6 +16,14 @@ namespace IskraAnalytics.API.Controllers
         public MetricsController(IMetricService metricService)
         {
             _metricService = metricService;
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("find")]
+        public async Task<ActionResult<MetricPagedResponse>> GetPagedMetrics([FromQuery] FindMetricRequest request)
+        {
+            var result = await _metricService.FindMetricsAsync(request);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -32,6 +40,14 @@ namespace IskraAnalytics.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("selector")]
+        public async Task<ActionResult<IEnumerable<MetricSelectorResponse>>> GetMetricsForSelector()
+        {
+            var result = await _metricService.GetMetricsForSelectorAsync();
+            return Ok(result);
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("create")]
         public async Task<ActionResult<MetricResponse>> CreateMetric([FromBody] CreateMetricRequest request)
         {
@@ -39,6 +55,7 @@ namespace IskraAnalytics.API.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{metricId}")]
         public async Task<ActionResult> UpdateMetric(Guid metricId, [FromBody] UpdateMetricRequest request)
         {
@@ -46,10 +63,19 @@ namespace IskraAnalytics.API.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete/{metricId}")]
         public async Task<IActionResult> DeleteMetric(Guid metricId)
         {
             await _metricService.SoftDeleteMetricAsync(metricId);
+            return NoContent();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id:guid}/restore")]
+        public async Task<IActionResult> RestoreMetric(Guid id)
+        {
+            await _metricService.RestoreMetricAsync(id);
             return NoContent();
         }
     }

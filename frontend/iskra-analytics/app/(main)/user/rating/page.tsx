@@ -3,7 +3,7 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 
-import ChildSwitcher from '@/app/components//UI/ChildSwitcher';
+import ChildSwitcher from '@/app/components/UI/ChildSwitcher';
 import AddChildModal from '@/app/components/UI/AddChildModal';
 
 import { studentService } from '@/app/components/services/studentService';
@@ -46,7 +46,7 @@ function RatingContent() {
 
             const [childrenData, metricsData] = await Promise.all([
                 studentService.getChildren(),
-                metricService.getMetrics()
+                metricService.getMetricsForSelector()
             ]);
 
             setChildren(childrenData);
@@ -88,11 +88,11 @@ function RatingContent() {
     }, [studentId, metricId]);
 
     return (
-        <div className="p-8 pt-48 px-[10%] md:px-[15%] mx-auto">
+        <div className="p-4 sm:p-8 pt-32 md:pt-48 px-[4%] sm:px-[10%] md:px-[15%] mx-auto w-full max-w-480">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                 <div>
-                    <h1 className="text-6xl font-bold text-brand">Рейтинг</h1>
-                    <p className="text-brand/60 text-4xl mt-2 font-medium">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand">Рейтинг</h1>
+                    <p className="text-xl sm:text-2xl md:text-4xl mt-2 font-medium text-brand/60">
                         Отслеживание результатов и сравнение с другими
                     </p>
 
@@ -106,41 +106,52 @@ function RatingContent() {
 
             {/* ТАБЛИЦА */}
             {loading ? (
-                <div className="text-[#808080] text-2xl">Загрузка...</div>
+                <div className="text-muted text-2xl pl-2">Загрузка...</div>
             ) : leaderboard.length === 0 ? (
                 <div className="bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-white">
-                    <p className="text-brand/60 font-medium text-2xl text-center m-5">
+                    <p className="text-brand/60 font-medium text-xl md:text-2xl text-center m-5">
                         Нет данных для отображения.<br />
                         Выберите спортсмена и упражнение
                     </p>
                 </div>
             ) : (
-                <div className="bg-white rounded-4xl shadow-lg overflow-hidden">
-                    <table className="w-full text-left">
-                        <thead className="bg-brand text-xl font-extrabold text-white tracking-[0.02em]">
-                            <tr>
-                                <th className="p-6">Место</th>
-                                <th className="p-6">Имя</th>
-                                <th className="p-6">Результат</th>
-                                <th className='p-6'>Дата рекорда</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {leaderboard.map((item) => (
-                                <tr
-                                    key={item.studentId}
-                                    className="border-t-2 border-brand text-xl text-brand font-bold"
-                                >
-                                    <td className="p-6">{item.rank}</td>
-                                    <td className="p-6">{item.studentName}</td>
-                                    <td className="p-6">
-                                        {item.score} {t('units', item.unit)}
-                                    </td>
-                                    <td className="p-6">{item.createdAt}</td>
+                <div className="bg-white rounded-3xl md:rounded-4xl shadow-lg overflow-hidden">
+                    <div className="overflow-x-auto w-full">
+                        <table className="w-full min-w-187.5 text-left table-auto">
+                            <thead className="bg-brand text-lg md:text-xl font-extrabold text-white tracking-[0.02em]">
+                                <tr>
+                                    <th className="p-4 md:p-6 w-[10%]">Место</th>
+                                    <th className="p-4 md:p-6 w-[35%]">Имя</th>
+                                    <th className="p-4 md:p-6 w-[27%]">Рекорд (Лучший)</th>
+                                    <th className="p-4 md:p-6 w-[28%]">Последний замер</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {leaderboard.map((item) => (
+                                    <tr
+                                        key={item.studentId}
+                                        className="border-t-2 border-brand/10 text-lg md:text-xl text-brand font-bold hover:bg-brand/5 transition-colors"
+                                    >
+                                        <td className="p-4 md:p-6">{item.rank}</td>
+                                        <td className="p-4 md:p-6">{item.studentName}</td>                                
+                                        <td className="p-4 md:p-6">
+                                            <div>{item.score} {t('units', item.unit)}</div>
+                                            <div className="text-sm text-brand/50 font-normal mt-0.5">
+                                                от {item.createdAt}
+                                            </div>
+                                        </td>
+
+                                        <td className="p-4 md:p-6">
+                                            <div>{item.lastScore} {t('units', item.unit)}</div>
+                                            <div className="text-sm text-brand/50 font-normal mt-0.5">
+                                                от {item.lastCreatedAt}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )}
 

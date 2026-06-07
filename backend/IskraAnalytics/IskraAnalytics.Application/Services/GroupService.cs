@@ -18,6 +18,20 @@ namespace IskraAnalytics.Application.Services
             _userRepository = userRepository;
         }
 
+        //Найти группы
+        public async Task<GroupPagedResponse> FindGroupsAsync(FindGroupRequest request)
+        {
+            var (groups, totalCount) = await _groupRepository.FindGroupsAsync(request);
+            var totalPages = (int)Math.Ceiling((double)totalCount / request.PageSize);
+
+            return new GroupPagedResponse(
+                Groups: groups,
+                TotalCount: totalCount,
+                TotalPages: totalPages,
+                CurrentPage: request.Page
+            );
+        }
+
         //Создать группу
         public async Task<GroupResponse> CreateGroupAsync(CreateGroupRequest request)
         {
@@ -84,15 +98,45 @@ namespace IskraAnalytics.Application.Services
         //Получить все активные группы
         public async Task<List<GroupResponse>> GetAllActiveGroupsAsync()
         {
-            var groups = await _groupRepository.GetAllGroupsAsync();
+            var groups = await _groupRepository.GetAllActiveGroupsAsync();
             return _mapper.Map<List<GroupResponse>>(groups);
         }
 
         //Получить группу по id
         public async Task<GroupResponse> GetGroupByIdAsync(Guid id)
         {
-            var group = await GetGroupByIdAsync(id);
+            var group = await _groupRepository.GetByIdAsync(id);
             return _mapper.Map<GroupResponse>(group);
+        }
+
+        //Получить группу по id тренера
+        public async Task<List<GroupResponse>> GetGroupsByCoachIdAsync(Guid coachId)
+        {
+            var coach = await _userRepository.GetUserByIdAsync(coachId);
+            if(coach == null)
+            {
+                throw new Exception("Пользователя с таким id не существует");
+            }
+            var groups = await _groupRepository.GetGroupsByCoachId(coachId);
+            return _mapper.Map<List<GroupResponse>>(groups);
+        }
+
+        //Получить группу со студентами по id тренера
+        public async Task<List<GroupWithStudentsResponse>> GetGroupsWithStudentsByCoachIdAsync(Guid coachId)
+        {
+            var coach = await _userRepository.GetUserByIdAsync(coachId);
+            if (coach == null)
+            {
+                throw new Exception("Пользователя с таким id не существует");
+            }
+            var groups = await _groupRepository.GetGroupsWithStudentsByCoachIdAsync(coachId);
+            return _mapper.Map<List<GroupWithStudentsResponse>>(groups);
+        }
+
+        //Восстановить группу
+        public async Task RestoreGroupAsync(Guid id)
+        {
+            await _groupRepository.RestoreAsync(id);
         }
     }
 }

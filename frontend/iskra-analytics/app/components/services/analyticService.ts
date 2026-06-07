@@ -31,7 +31,7 @@ export const analyticService = {
         return res.json();
     },
 
-        getRatingOverall: async (studentId: string) => {
+    getRatingOverall: async (studentId: string) => {
         const res = await request(`/Analytics/ratingOverall?studentId=${studentId}`, 'GET')
 
         if(!res.ok) {

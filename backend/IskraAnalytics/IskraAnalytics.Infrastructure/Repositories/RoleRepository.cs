@@ -19,5 +19,11 @@ namespace IskraAnalytics.Infrastructure.Repositories
         {
             return await _dbContext.Roles.ToListAsync();
         }
+        
+        //Получить роль по id
+        public async Task<IdentityRole<Guid>?> GetRoleByIdAsync(Guid roleId)
+        {
+            return await _dbContext.Roles.FirstOrDefaultAsync(r => r.Id == roleId);
+        }
     }
 }

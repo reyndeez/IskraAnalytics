@@ -3,160 +3,48 @@
   "WorkspaceRootPath": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\roleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\roleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\data\\iskradbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\data\\iskradbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\analyticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\analyticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\studentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\studentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\leaderboardresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\leaderboardresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\recommendationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\recommendationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\resultresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\resultresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\ianalyticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\ianalyticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\requests\\updatemetricrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\requests\\updatemetricrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\requests\\createmetricrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\requests\\createmetricrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\requests\\recommendationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\requests\\recommendationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\requests\\leaderboardrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\requests\\leaderboardrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\enums\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\enums\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\entities\\metric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\entities\\metric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\chartdataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\chartdataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\resultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\resultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.infrastructure\\repositories\\resultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B7830A1-24A6-4D78-A50D-53474C32066B}|IskraAnalytics.Infrastructure\\IskraAnalytics.Infrastructure.csproj|solutionrelative:iskraanalytics.infrastructure\\repositories\\resultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\interfaces\\iresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\interfaces\\iresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\contracts\\responses\\leaderboardresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\contracts\\responses\\leaderboardresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.application\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDFBD44E-496D-4A38-98E8-4264FCC9D691}|IskraAnalytics.Application\\IskraAnalytics.Application.csproj|solutionrelative:iskraanalytics.application\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.domain\\entities\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EE77A09-FB4D-45C0-8B0B-1956DD71774A}|IskraAnalytics.Domain\\IskraAnalytics.Domain.csproj|solutionrelative:iskraanalytics.domain\\entities\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\metricscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\metricscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -165,8 +53,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 372,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 718,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -178,487 +66,136 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T18:33:48.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\User.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T12:27:08.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\UserResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\UserResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\UserResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\UserResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T15:52:44.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Program.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.API\\Program.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Program.cs",
-              "RelativeToolTip": "IskraAnalytics.API\\Program.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAjwHUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:16:51.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RolesController.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\RolesController.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\RolesController.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\RolesController.cs",
-              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\RolesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:11:33.128Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RoleService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\RoleService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\RoleService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\RoleService.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\RoleService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:04:37.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IRoleRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IRoleRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IRoleRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IRoleRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IRoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:03:38.768Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RoleRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\RoleRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Repositories\\RoleRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\RoleRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Repositories\\RoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T13:18:52.118Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AnalyticService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AnalyticService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\AnalyticService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AnalyticService.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\AnalyticService.cs",
-              "ViewState": "AgIAALAAAAAAAAAAAAAuwNUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:10:03.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IRoleService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IRoleService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IRoleService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IRoleService.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IRoleService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:14:12.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CreateMetricRequest.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\CreateMetricRequest.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Requests\\CreateMetricRequest.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\CreateMetricRequest.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Requests\\CreateMetricRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T13:39:38.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "AnalyticsController.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
-              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAiwD4AAAB5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T11:17:30.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "UpdateMetricRequest.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\UpdateMetricRequest.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Requests\\UpdateMetricRequest.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\UpdateMetricRequest.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Requests\\UpdateMetricRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T12:43:35.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Units.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Enums\\Units.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Enums\\Units.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Enums\\Units.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Enums\\Units.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T12:45:07.062Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ResultService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\ResultService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\ResultService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\ResultService.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\ResultService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:10:19.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "ResultRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwC8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:09:25.189Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 415,
-          "SelectedChildIndex": 5,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IskraDbContext.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Data\\IskraDbContext.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Data\\IskraDbContext.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Data\\IskraDbContext.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Data\\IskraDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T11:05:13.032Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GroupService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\GroupService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\GroupService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\GroupService.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\GroupService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:10:39.679Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DbInitializer.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Data\\DbInitializer.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Data\\DbInitializer.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Data\\DbInitializer.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Data\\DbInitializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T11:05:17.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T13:22:55.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RoleResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\RoleResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\RoleResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\RoleResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\RoleResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T15:55:51.91Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\AuthService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AuthService.cs*",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\AuthService.cs*",
-              "ViewState": "AgIAADEAAAAAAAAAAAAmwE8AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T11:42:05.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Mappings\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Mappings\\MappingProfile.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Mappings\\MappingProfile.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Mappings\\MappingProfile.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAwCAAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:41:44.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "StudentResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\StudentResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\StudentResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\StudentResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\StudentResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:01:04.63Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "StudentsController.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\StudentsController.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\StudentsController.cs",
-              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:12:00.078Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:18:34.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IAuthService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:08:29.854Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "StudentRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\StudentRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Repositories\\StudentRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\StudentRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Repositories\\StudentRepository.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAkwEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:09:38.435Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ResultResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\ResultResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\ResultResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\ResultResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\ResultResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T05:55:23.816Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "RecommendationResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\RecommendationResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\RecommendationResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\RecommendationResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\RecommendationResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T09:47:08.575Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
               "Title": "LeaderBoardResponse.cs",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\LeaderBoardResponse.cs",
               "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\LeaderBoardResponse.cs",
               "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\LeaderBoardResponse.cs",
               "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\LeaderBoardResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T12:44:45.538Z"
+              "WhenOpened": "2026-06-06T17:26:20.919Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IAnalyticService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IAnalyticService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IAnalyticService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IAnalyticService.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IAnalyticService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AnalyticService.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AnalyticService.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\AnalyticService.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\AnalyticService.cs",
+              "RelativeToolTip": "IskraAnalytics.Application\\Services\\AnalyticService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T13:02:18.866Z"
+              "WhenOpened": "2026-06-06T17:22:51.496Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "RecommendationRequest.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\RecommendationRequest.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Requests\\RecommendationRequest.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\RecommendationRequest.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Requests\\RecommendationRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ResultRepository.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
+              "RelativeToolTip": "IskraAnalytics.Infrastructure\\Repositories\\ResultRepository.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAuwGQAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T09:56:40.288Z"
+              "WhenOpened": "2026-06-06T14:00:40.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "LeaderBoardRequest.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\LeaderBoardRequest.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Requests\\LeaderBoardRequest.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Requests\\LeaderBoardRequest.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Requests\\LeaderBoardRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T11:31:49.9Z"
+              "WhenOpened": "2026-06-06T12:46:44.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Metric.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Metric.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\Metric.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Metric.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\Metric.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAwwH4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T15:06:46.182Z"
+              "WhenOpened": "2026-06-06T12:46:44.173Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ChartDataResponse.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\ChartDataResponse.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Contracts\\Responses\\ChartDataResponse.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Contracts\\Responses\\ChartDataResponse.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Contracts\\Responses\\ChartDataResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\RolesController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:07:03.664Z"
+              "WhenOpened": "2026-06-06T12:46:43.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IResultRepository.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IResultRepository.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Interfaces\\IResultRepository.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Interfaces\\IResultRepository.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Interfaces\\IResultRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "ResultsController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\ResultsController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\ResultsController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\ResultsController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\ResultsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:24:17.916Z"
+              "WhenOpened": "2026-06-06T12:46:43.133Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "StudentService.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\StudentService.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Application\\Services\\StudentService.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Application\\Services\\StudentService.cs",
-              "RelativeToolTip": "IskraAnalytics.Application\\Services\\StudentService.cs",
+              "DocumentIndex": 6,
+              "Title": "MetricsController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\MetricsController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\MetricsController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\MetricsController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\MetricsController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowEkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T12:46:42.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T10:14:34.107Z"
+              "WhenOpened": "2026-06-06T12:46:41.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Result.cs",
-              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Result.cs",
-              "RelativeDocumentMoniker": "IskraAnalytics.Domain\\Entities\\Result.cs",
-              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.Domain\\Entities\\Result.cs",
-              "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\Result.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AnalyticsController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\AnalyticsController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T11:29:10.522Z"
+              "WhenOpened": "2026-06-06T12:46:40.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GroupsController.cs",
+              "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\GroupsController.cs",
+              "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\GroupsController.cs",
+              "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\GroupsController.cs",
+              "RelativeToolTip": "IskraAnalytics.API\\Controllers\\GroupsController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswEQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T17:33:48.344Z"
             }
           ]
         }

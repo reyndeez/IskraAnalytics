@@ -7,6 +7,7 @@ namespace IskraAnalytics.Domain.Contracts.Responses
         string Name,
         string Description,
         string Recommendation,
-        Units Unit
+        Units Unit,
+        bool IsActive
         );
 }
