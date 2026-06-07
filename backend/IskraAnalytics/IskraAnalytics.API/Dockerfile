@@ -12,11 +12,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["IskraAnalytics.API/IskraAnalytics.API.csproj", "IskraAnalytics.API/"]
-RUN dotnet restore "./IskraAnalytics.API/IskraAnalytics.API.csproj"
-COPY . .
-WORKDIR "/src/IskraAnalytics.API"
-RUN dotnet build "./IskraAnalytics.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+# Путь от корня проекта до csproj
+COPY ["backend/IskraAnalytics/IskraAnalytics.API/IskraAnalytics.API.csproj", "backend/IskraAnalytics/IskraAnalytics.API/"]
+# Скопируйте остальные зависимости (например, если есть .sln или другие проекты в папке solution)
+COPY . . 
+WORKDIR "/src/backend/IskraAnalytics/IskraAnalytics.API"
+RUN dotnet build "IskraAnalytics.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Этот этап используется для публикации проекта службы, который будет скопирован на последний этап
 FROM build AS publish

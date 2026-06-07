@@ -16,10 +16,12 @@ services:
 
   backend:
     build:
-      context: .
+      context: .  # Корневая папка (D:/IskraAnalytics)
       dockerfile: backend/IskraAnalytics/IskraAnalytics.API/Dockerfile
     ports:
-      - "5000:80"
+      - "5000:8080" # ASP.NET Core по умолчанию в контейнере слушает 8080
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
     restart: always
     depends_on:
       - db

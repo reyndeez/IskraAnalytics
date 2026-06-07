@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|solutionrelative:iskraanalytics.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FEE29DC-BF5E-430D-8D6A-5A17A8033988}|IskraAnalytics.API\\IskraAnalytics.API.csproj|d:\\iskraanalytics\\backend\\iskraanalytics\\iskraanalytics.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 718,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": ".dockerignore",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\.dockerignore",
               "RelativeDocumentMoniker": ".dockerignore",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\appsettings.json",
               "RelativeDocumentMoniker": "IskraAnalytics.API\\appsettings.json",
@@ -179,18 +179,17 @@
               "RelativeToolTip": "IskraAnalytics.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-07T16:51:04.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:51:04.255Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Dockerfile",
               "RelativeDocumentMoniker": "IskraAnalytics.API\\Dockerfile",
               "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Dockerfile",
               "RelativeToolTip": "IskraAnalytics.API\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-06-07T16:42:57.192Z",
               "EditorCaption": ""
