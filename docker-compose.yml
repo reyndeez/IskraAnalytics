@@ -15,13 +15,10 @@ services:
 
   backend:
     build:
-      context: .  # Корень проекта
-      dockerfile: backend/IskraAnalytics/IskraAnalytics.API/Dockerfile
+      context: ./backend/IskraAnalytics/IskraAnalytics.API
+      dockerfile: Dockerfile
     ports:
       - "5000:8080"
-    environment:
-      - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=IskraAnalyticsDb;Username=user;Password=123;
     depends_on:
       - db
 
