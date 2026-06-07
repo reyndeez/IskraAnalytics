@@ -16,8 +16,8 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: IskraAnalytics.API/Dockerfile
+      context: .
+      dockerfile: backend/IskraAnalytics/IskraAnalytics.API/Dockerfile
     ports:
       - "5000:80"
     restart: always
