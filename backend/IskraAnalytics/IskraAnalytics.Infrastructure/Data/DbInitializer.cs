@@ -1,5 +1,6 @@
 ﻿using IskraAnalytics.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IskraAnalytics.Infrastructure.Data
@@ -8,6 +9,10 @@ namespace IskraAnalytics.Infrastructure.Data
     {
         public static async Task Initialize(IServiceProvider serviceProvider)
         {
+            var context = serviceProvider.GetRequiredService<IskraDbContext>();
+
+            await context.Database.MigrateAsync();
+
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
 

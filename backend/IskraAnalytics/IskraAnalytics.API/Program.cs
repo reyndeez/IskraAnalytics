@@ -20,11 +20,17 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
 
-// Регистрация инфраструктуры (База данных)
-builder.Services.AddDbContext<IskraDbContext>(options =>
-    options.UseNpgsql(connectionString));
+// CORS - настраиваем политику
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevCorsPolicy", b =>
+        b.AllowAnyOrigin()
+         .AllowAnyMethod()
+         .AllowAnyHeader());
+});
 
-// Настройка Identity
+// Инфраструктура и Identity
+builder.Services.AddDbContext<IskraDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
 {
     options.Password.RequireDigit = false;
@@ -35,7 +41,7 @@ builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
 .AddEntityFrameworkStores<IskraDbContext>()
 .AddDefaultTokenProviders();
 
-// Регистрация репозиториев
+// Регистрация сервисов и репозиториев
 builder.Services.AddScoped<IGroupRepository, GroupRepository>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -43,7 +49,6 @@ builder.Services.AddScoped<IResultRepository, ResultRepository>();
 builder.Services.AddScoped<IMetricRepository, MetricRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
-// Регистрация сервисов
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
@@ -53,7 +58,7 @@ builder.Services.AddScoped<IAnalyticService, AnalyticService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
-// Настройка аутентификации
+// Аутентификация
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -73,57 +78,29 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Настройки сервисов
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Введите JWT токен в формате: Bearer {ваш_токен}",
+        Description = "Введите JWT токен: Bearer {токен}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-            },
-            new string[] {}
-        }
-    });
-});
-
-// Настройка CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("DevCorsPolicy", b =>
-        b.AllowAnyOrigin()
-         .AllowAnyMethod()
-         .AllowAnyHeader());
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement { { new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } }, new string[] { } } });
 });
 
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
 
-// --- Сборка приложения ---
 var app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "IskraAnalytics API v1");
-    c.RoutePrefix = "swagger"; // Будет доступен по адресу http://ВАШ_IP:5000/swagger
-});
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "IskraAnalytics API v1"); });
 
-// app.UseHttpsRedirection(); 
-
-app.UseStaticFiles();
-app.UseRouting();
-
+app.UseRouting(); 
 app.UseCors("DevCorsPolicy");
 
 app.UseAuthentication();
@@ -131,19 +108,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Автоматическая инициализация и создание структуры БД при старте
+// Инициализация БД
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    try
-    {
-        await DbInitializer.Initialize(services);
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "Произошла ошибка при создании или заполнении базы данных.");
-    }
+    try { await DbInitializer.Initialize(scope.ServiceProvider); }
+    catch (Exception ex) { scope.ServiceProvider.GetRequiredService<ILogger<Program>>().LogError(ex, "Ошибка БД"); }
 }
 
 app.Run();
