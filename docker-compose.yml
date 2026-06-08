@@ -15,12 +15,23 @@ services:
 
   backend:
     build:
-      context: ./backend/IskraAnalytics/IskraAnalytics.API
-      dockerfile: Dockerfile
+      context: ./backend/IskraAnalytics
+      dockerfile: IskraAnalytics.API/Dockerfile
     ports:
       - "5000:8080"
+    environment:
+    - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=IskraAnalyticsDb;Username=user;Password=123;
     depends_on:
       - db
+    
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+    - "80:3000"
+    depends_on:
+    - backend
 
 volumes:
   pgdata:
