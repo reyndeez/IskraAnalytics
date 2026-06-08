@@ -1,5 +1,5 @@
 //const API_URL = "http://localhost:5172/api";
-const API_URL = "http://153.80.184.141:5000";
+const API_URL = "http://153.80.184.141:5000/api";
 //ПОМЕНЯТЬ
 
 const getCookie = (name: string): string | null => {
