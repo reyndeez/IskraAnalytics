@@ -11,15 +11,22 @@ import { UserRow } from "@/app/components/UI/UserRow";
 import { RoleResponse } from "@/app/models/responses/roleResponse";
 import { UserPagedResponse } from "@/app/models/responses/UserPagedResponse";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 const SORT_OPTIONS = [
     { id: 'date', name: 'По дате регистрации'},
     { id: 'role', name: 'По роли'},
     { id: 'name', name: 'По имени'}
 ]
+export default function UsersPage() {
+    return(
+    <Suspense fallback={<div className="text-white">Загрузка...</div>}>
+        <UsersContent />
+    </Suspense>
+    );
+}
 
-export default function UsersPage(){
+function UsersContent() {
     const [roles, setRoles] = useState<RoleResponse[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const searchParams = useSearchParams();

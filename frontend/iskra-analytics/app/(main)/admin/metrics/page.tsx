@@ -9,7 +9,7 @@ import { ActivitySelector } from "@/app/components/UI/ActivitySelector";
 import { MetricRow } from "@/app/components/UI/MetricRow"; 
 import { MetricDataModal } from "@/app/components/UI/MetricDataModal";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 
 const SORT_OPTIONS = [
@@ -18,6 +18,14 @@ const SORT_OPTIONS = [
 ];
 
 export default function MetricsPage() {
+    return(
+    <Suspense fallback={<div className="text-white">Загрузка...</div>}>
+        <MetricsContent />
+    </Suspense>
+    );
+}
+
+function MetricsContent() {
     const [isLoading, setIsLoading] = useState(true);
     const searchParams = useSearchParams();
     const [metricData, setMetricData] = useState<any | null>(null);

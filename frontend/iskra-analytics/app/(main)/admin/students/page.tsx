@@ -9,7 +9,7 @@ import { ActivitySelector } from "@/app/components/UI/ActivitySelector";
 import { StudentRow } from "@/app/components/UI/StudentRow";
 import { StudentDataModal } from "@/app/components/UI/StudentDataModal";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 
 const SORT_OPTIONS = [
@@ -17,8 +17,15 @@ const SORT_OPTIONS = [
     { id: 'group', name: 'По группе' },
     { id: 'birthDate', name: 'По дате рождения' }
 ];
+export default function StudentPage() {
+    return(
+    <Suspense fallback={<div className="text-white">Загрузка...</div>}>
+        <StudentContent />
+    </Suspense>
+    );
+}
 
-export default function StudentsPage() {
+function StudentContent() {
     const [isLoading, setIsLoading] = useState(true);
     const searchParams = useSearchParams();
     const [studentData, setStudentData] = useState<any | null>(null);
