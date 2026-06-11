@@ -2583,7 +2583,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "apiKey",
-        "description": "Введите JWT токен в формате: Bearer {ваш_токен}",
+        "description": "Введите JWT токен: Bearer {токен}",
         "name": "Authorization",
         "in": "header"
       }

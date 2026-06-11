@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IskraAnalytics.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e07b57621c891193aa6f36a2b01ab30c0be40d2a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4fd83752c2b940602a0124509f72d3ec3c4bb99")]
 [assembly: System.Reflection.AssemblyProductAttribute("IskraAnalytics.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IskraAnalytics.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

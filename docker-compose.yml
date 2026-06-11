@@ -1,13 +1,12 @@
 version: '3.8'
-
 services:
   db:
     image: postgres:15-alpine
     container_name: iskra_postgres_db
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: IskraAnalyticsDb
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
@@ -20,18 +19,25 @@ services:
     ports:
       - "5000:8080"
     environment:
-    - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=IskraAnalyticsDb;Username=user;Password=123;
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASSWORD};
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=${JWT_ISSUER}
+      - Jwt__Audience=${JWT_AUDIENCE}
     depends_on:
       - db
-    
+
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     ports:
-    - "80:3000"
+      - "80:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     depends_on:
-    - backend
+      - backend
 
 volumes:
   pgdata:

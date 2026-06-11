@@ -2,17 +2,19 @@ FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Копируем файлы из подпапки iskra-analytics
 COPY iskra-analytics/package.json iskra-analytics/package-lock.json* ./
 RUN npm ci
 
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-# Копируем все файлы из iskra-analytics
 COPY iskra-analytics/ .
 
 ENV NEXT_TELEMETRY_DISABLED=1
+
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 RUN npm run build
 
 FROM node:20-alpine AS runner
