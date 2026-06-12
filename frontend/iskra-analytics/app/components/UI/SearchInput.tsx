@@ -29,12 +29,12 @@ export function SearchInput() {
     };
 
     return (
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
             <div 
                 onClick={handleSearch}
-                className="p-2 bg-white rounded-2xl shadow-xl cursor-pointer"
+                className="p-2 bg-white rounded-2xl shadow-xl cursor-pointer shrink-0"
             >
-                <SearchIcon className="w-9 h-9 text-brand" />
+                <SearchIcon className="w-6 h-6 sm:w-9 sm:h-9 text-brand" />
             </div>
 
             <input
@@ -42,7 +42,7 @@ export function SearchInput() {
                 onChange={(e) => setValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Поиск"
-                className="p-3 shadow-xl text-brand text-xl font-medium bg-white rounded-2xl"
+                className="p-2 sm:p-3 w-full sm:w-auto shadow-xl text-brand text-base sm:text-xl font-medium bg-white rounded-2xl focus:outline-none"
             />
         </div>
     );

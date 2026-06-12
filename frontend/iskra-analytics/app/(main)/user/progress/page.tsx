@@ -28,13 +28,15 @@ function ProgressContent() {
 
     const studentId = searchParams.get('studentId');
     const activeMetricId = searchParams.get('metricId');    
+    const isAddModalOpen = searchParams.get('addClick') === 'true';
 
     const [children, setChildren] = useState<StudentResponse[]>([]);
     const [metrics, setMetrics] = useState<Metric[]>([]);
 
-    const [loading, setLoading] = useState(true);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // Локальный стейт для мгновенной синхронизации выбранного ребенка
+    const [activeStudentId, setActiveStudentId] = useState<string | null>(null);
 
+    const [loading, setLoading] = useState(true);
     const [chartData, setChartData] = useState<ChartDataResponse[]>([]);
     const [isChartLoading, setIsChartLoading] = useState(false);
 
@@ -46,12 +48,14 @@ function ProgressContent() {
         setIsRecLoading(true);
         try {
             const recData = await analyticService.getRecommendations(id);
-            setRecommendations(recData);
+            const validRecs = (recData || []).filter((r: RecommendationResponse) => r && r.name && r.recommendation?.trim());
+            setRecommendations(validRecs);
 
             const ratingData = await analyticService.getRatingOverall(id);
-            setOverallRating(ratingData);
+            setOverallRating(ratingData || []);
         } catch (err) {
             console.error("Ошибка при загрузке аналитики:", err);
+            setRecommendations([]);
         } finally {
             setIsRecLoading(false);
         }
@@ -61,7 +65,7 @@ function ProgressContent() {
         setIsChartLoading(true);
         try {
             const data = await analyticService.getChartData(id, metricId);
-            setChartData(data);
+            setChartData(data || []);
         } catch (err) {
             console.error(err);
             setChartData([]);
@@ -70,6 +74,7 @@ function ProgressContent() {
         }
     };
 
+    // Первичная инициализация данных
     useEffect(() => {
         const initializePage = async () => {
             try {
@@ -78,25 +83,32 @@ function ProgressContent() {
                     metricService.getMetricsForSelector()
                 ]);
 
-                setChildren(childrenData);
-                setMetrics(metricsData);
+                const validChildren = childrenData || [];
+                setChildren(validChildren);
+                setMetrics(metricsData || []);
 
                 const currentParams = new URLSearchParams(window.location.search);
                 let shouldUpdateUrl = false;
 
-                if (!currentParams.get('studentId') && childrenData.length > 0) {
-                    currentParams.set('studentId', childrenData[0].id.toString());
+                const savedStudentId = localStorage.getItem('selectedStudentId');
+                let targetStudentId = currentParams.get('studentId');
+
+                if (!targetStudentId && savedStudentId && validChildren.some((c: StudentResponse) => c.id.toString() === savedStudentId)) {
+                    targetStudentId = savedStudentId;
+                    currentParams.set('studentId', targetStudentId);
+                    shouldUpdateUrl = true;
+                } else if (!targetStudentId && validChildren.length > 0) {
+                    targetStudentId = validChildren[0].id.toString();
+                    currentParams.set('studentId', targetStudentId!);
                     shouldUpdateUrl = true;
                 }
 
-                if (!currentParams.get('metricId') && metricsData.length > 0) {
+                if (targetStudentId) {
+                    setActiveStudentId(targetStudentId);
+                }
+
+                if (!currentParams.get('metricId') && metricsData?.length > 0) {
                     currentParams.set('metricId', metricsData[0].id);
-                    shouldUpdateUrl = true;
-                }
-
-                if (currentParams.get('addClick') === 'true') {
-                    setIsModalOpen(true);          
-                    currentParams.delete('addClick'); 
                     shouldUpdateUrl = true;
                 }
 
@@ -111,29 +123,45 @@ function ProgressContent() {
         };
 
         initializePage();
-    }, []);
+    }, [router]);
 
+    // Синхронизируем локальный стейт, если ID изменился в URL (например, через ChildSwitcher)
     useEffect(() => {
         if (studentId) {
-            fetchAnalytics(studentId);
+            setActiveStudentId(studentId);
         }
     }, [studentId]);
 
+    // Следим за изменением параметров активного студента и метрик
     useEffect(() => {
-        if (studentId && activeMetricId) {
-            fetchChartData(studentId, activeMetricId);
+        if (activeStudentId) {
+            fetchAnalytics(activeStudentId);
         }
-    }, [studentId, activeMetricId]);
+    }, [activeStudentId]);
+
+    useEffect(() => {
+        if (activeStudentId && activeMetricId) {
+            fetchChartData(activeStudentId, activeMetricId);
+        }
+    }, [activeStudentId, activeMetricId]);
+
+    const handleCloseModal = () => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.delete('addClick');
+        router.replace(`?${params.toString()}`, { scroll: false });
+    };
 
     return (
-        <div className="p-4 sm:p-8 pt-28 md:pt-48 px-4 sm:px-[10%] md:px-[15%] mx-auto">
+        <div className="p-4 sm:p-8 pt-28 md:pt-48 px-4 sm:px-[10%] md:px-[15%] mx-auto max-w-7xl">
             {/* Заголовок страницы */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 md:mb-12">
-                <div className="space-y-1">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 md:mb-12">
+                <div className="space-y-1 max-w-full wrap-break-word">
                     <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-brand">Прогресс</h1>
-                    <p className="text-brand/60 text-lg sm:text-2xl md:text-4xl font-medium leading-tight mt-2">Мониторинг личных достижений спортсмена</p>
+                    <p className="text-brand/60 text-base sm:text-xl md:text-2xl font-medium leading-tight mt-2">
+                        Мониторинг личных достижений спортсмена
+                    </p>
                 </div>
-                <div className="w-full md:w-auto">
+                <div className="w-full lg:w-auto flex justify-start lg:justify-end">
                     <ChildSwitcher childrenList={children} />
                 </div>
             </div>
@@ -143,66 +171,66 @@ function ProgressContent() {
                     <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-brand border-t-transparent rounded-full animate-spin"></div>
                     <p className="mt-4 text-brand font-semibold text-sm sm:text-base">Загружаем данные профиля...</p>
                 </div>
-            ) : studentId ? (
+            ) : activeStudentId ? (
                 <div className="flex flex-col gap-6 md:gap-8">
                     {/* КАРТОЧКИ */}
                     <section>
                         {(() => {
-                            const currentStudent = children.find(c => c.id.toString() === studentId);                
+                            const currentStudent = children.find(c => c.id.toString() === activeStudentId);                
                             return (
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">                        
                                     {/* Карточка спортсмена */}
                                     <div className="p-6 md:p-8 bg-white/70 backdrop-blur-xl rounded-3xl md:rounded-4xl border border-white/40 shadow-xl shadow-blue-900/5 flex flex-col justify-between min-h-60 transition-all hover:shadow-2xl hover:shadow-blue-900/10">
-                                        <div className="flex justify-between items-center mb-6">
-                                            <p className="text-lg md:text-xl font-extrabold text-brand uppercase tracking-wider">Карточка спортсмена</p>
+                                        <div className="flex justify-between items-center mb-4">
+                                            <p className="text-sm md:text-base font-extrabold text-brand uppercase tracking-wider">Карточка спортсмена</p>
                                         </div>
                                         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8">
                                             <div className="flex flex-col items-center shrink-0">
-                                                <div className="bg-brand text-white w-24 h-24 md:w-28 md:h-28 rounded-3xl md:rounded-4xl flex items-center justify-center text-3xl md:text-4xl font-black shadow-xl shadow-blue-200 uppercase">
-                                                    {currentStudent?.firstName[0]}
+                                                <div className="bg-brand text-white w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl font-black shadow-xl shadow-blue-200 uppercase">
+                                                    {currentStudent?.firstName?.[0] || '?' }
                                                 </div>
-                                                <div className="mt-3 md:mt-4 px-3 py-1 md:px-4 md:py-1.5 bg-brand rounded-xl shadow-lg shadow-blue-100 max-w-full">
-                                                    <p className="text-xs font-bold text-white uppercase tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">
+                                                <div className="mt-3 px-3 py-1 bg-brand rounded-xl shadow-lg shadow-blue-100 max-w-40">
+                                                    <p className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider block truncate">
                                                         {currentStudent ? t('ampluas', currentStudent.amplua) : '—'}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="flex flex-col space-y-2 w-full">
-                                                <div>
-                                                    <p className="text-lg md:text-xl font-medium text-gray-400 md:-mb-1">{currentStudent?.lastName}</p>
-                                                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight wrap-break-word">
+                                            <div className="flex flex-col space-y-2 w-full min-w-0">
+                                                <div className="wrap-break-word">
+                                                    <p className="text-sm md:text-base font-medium text-gray-400">{currentStudent?.lastName}</p>
+                                                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">
                                                         <span className="text-brand">{currentStudent?.firstName}</span>
                                                     </h2>
                                                 </div>
-                                                <div className="flex flex-col items-center sm:items-start gap-1 pt-2">
-                                                    <div className="flex items-center gap-2">
+                                                <div className="flex flex-col items-center sm:items-start gap-1 pt-1">
+                                                    <div className="flex items-center gap-2 min-w-0">
                                                         <div className="w-2 h-2 rounded-full bg-brand shrink-0"></div>
-                                                        <p className="text-lg md:text-xl font-bold text-gray-700 leading-tight">{currentStudent?.groupName || '—'}</p>
+                                                        <p className="text-base md:text-lg font-bold text-gray-700 truncate">{currentStudent?.groupName || '—'}</p>
                                                     </div>
-                                                    <p className="text-xs font-medium text-gray-400 uppercase tracking-widest sm:pl-4">Группа обучения</p>
+                                                    <p className="text-[10px] md:text-xs font-medium text-gray-400 uppercase tracking-widest sm:pl-4">Группа обучения</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Текущий статус */}
-                                    <div className="p-6 md:p-10 bg-linear-to-br from-brand to-[#04346e] rounded-3xl md:rounded-4xl shadow-2xl shadow-blue-100 flex flex-col justify-between text-white relative overflow-hidden min-h-60 sm:min-h-0">
+                                    <div className="p-6 md:p-8 bg-linear-to-br from-brand to-[#04346e] rounded-3xl md:rounded-4xl shadow-2xl shadow-blue-100 flex flex-col justify-between text-white relative overflow-hidden min-h-60">
                                         {(() => {
                                             const myRating = overallRating.find(r => r.isSelectedChild);
                                             return (
                                                 <>
-                                                    <div className="absolute -right-6 -top-6 md:-right-10 md:-top-10 text-8xl md:text-[200px] font-black opacity-10 italic select-none pointer-events-none">
+                                                    <div className="absolute -right-4 -top-4 md:-right-6 md:-top-6 text-7xl md:text-9xl font-black opacity-10 italic select-none pointer-events-none">
                                                         #{myRating?.rank || '?'}
                                                     </div>
-                                                    <div className="relative z-10 h-full flex flex-col justify-between">
-                                                        <p className="text-lg md:text-xl font-extrabold text-blue-200 uppercase tracking-wider">Текущий статус</p>
-                                                        <div className="flex items-baseline flex-wrap gap-3 md:gap-4 mt-6">
-                                                            <span className="text-6xl md:text-8xl font-black italic tracking-tighter">
+                                                    <div className="relative z-10 h-full flex flex-col justify-between w-full">
+                                                        <p className="text-sm md:text-base font-extrabold text-blue-200 uppercase tracking-wider">Текущий статус</p>
+                                                        <div className="flex items-baseline flex-wrap gap-2 md:gap-3 mt-4">
+                                                            <span className="text-5xl md:text-7xl font-black italic tracking-tighter">
                                                                 #{myRating?.rank || '—'}
                                                             </span>
                                                             <div className="flex flex-col">
-                                                                <span className="text-xl md:text-2xl text-blue-200 font-medium">в группе</span>
-                                                                <span className="text-xs md:text-sm text-blue-300">{myRating?.score} баллов</span>
+                                                                <span className="text-base md:text-lg text-blue-200 font-medium">в группе</span>
+                                                                <span className="text-[11px] md:text-xs text-blue-300">{myRating?.score || 0} баллов</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -217,17 +245,17 @@ function ProgressContent() {
                     
                     {/* ГРАФИКИ */}
                     <section className="w-full">
-                        <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-3xl md:rounded-4xl border border-white/40 shadow-xl shadow-blue-900/5">
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-10 gap-4">
+                        <div className="p-4 md:p-6 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/40 shadow-xl shadow-blue-900/5">
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                                 <div>
-                                    <h3 className="text-lg md:text-xl font-extrabold text-brand uppercase tracking-wider">Динамика показателей</h3>
-                                    <p className="text-base md:text-lg text-muted font-medium">Прогресс по ключевым упражнениям</p>
+                                    <h3 className="text-base md:text-lg font-extrabold text-brand uppercase tracking-wider">Динамика показателей</h3>
+                                    <p className="text-sm md:text-base text-gray-500 font-medium">Прогресс по ключевым упражнениям</p>
                                 </div>
-                                <div className="w-full md:w-auto scale-95 md:scale-90 md:origin-right relative z-40">
+                                <div className="w-full sm:w-auto relative z-30">
                                     <MetricSelector metrics={metrics} />
                                 </div>
                             </div>
-                            <div className="h-64 md:h-100 w-full mt-5">
+                            <div className="h-64 md:h-80 w-full mt-2">
                                 {isChartLoading ? (
                                     <div className="flex items-center justify-center h-full">
                                         <div className="w-8 h-8 border-4 border-blue-200 border-t-brand rounded-full animate-spin"></div>
@@ -235,44 +263,44 @@ function ProgressContent() {
                                 ) : chartData.length > 0 ? (
                                     <ProgressChart data={chartData} />
                                 ) : (
-                                    <div className="flex items-center justify-center h-full border border-dashed border-gray-200 rounded-2xl md:rounded-3xl p-4">
-                                        <p className="text-brand/60 font-medium text-lg md:text-2xl text-center">Недостаточно данных для графика (нужно минимум 3 записи)</p>
+                                    <div className="flex items-center justify-center h-full border border-dashed border-gray-200 rounded-2xl p-4">
+                                        <p className="text-brand/60 font-medium text-sm md:text-base text-center">Недостаточно данных для построения графика (требуется от 3 замеров)</p>
                                     </div>
                                 )}
                             </div>
                         </div>
                     </section>
 
-                    {/* РЕКОМЕНДАЦИИ */}
+                    {/* РЕКОМЕНДАЦИИ (ЗОНЫ РОСТА) */}
                     <section className="w-full">
-                        <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-3xl md:rounded-4xl border border-white/40 shadow-xl shadow-blue-900/5">
-                            <div className="mb-6 md:mb-10">
-                                <h3 className="text-lg md:text-xl font-extrabold text-brand uppercase tracking-wider">Зоны роста</h3>
-                                <p className="text-base md:text-lg text-muted font-medium">Интеллектуальные рекомендации по развитию</p>
+                        <div className="p-4 md:p-6 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/40 shadow-xl shadow-blue-900/5">
+                            <div className="mb-4">
+                                <h3 className="text-base md:text-lg font-extrabold text-brand uppercase tracking-wider">Зоны роста</h3>
+                                <p className="text-sm md:text-base text-gray-500 font-medium">Интеллектуальные рекомендации по развитию</p>
                             </div>
-                            <div className="w-full mt-5 space-y-4 md:space-y-6">
+                            <div className="w-full mt-4 space-y-4">
                                 {isRecLoading ? (
-                                    <div className="flex justify-center p-10">
+                                    <div className="flex justify-center p-8">
                                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand"></div>
                                     </div>
                                 ) : recommendations.length > 0 ? (
                                     recommendations.map((rec, index) => (
-                                        <div key={index} className="group relative p-5 md:p-8 bg-white/70 backdrop-blur-xl rounded-3xl md:rounded-4xl border border-white/40 shadow-sm hover:shadow-xl transition-all duration-300">
+                                        <div key={index} className="group relative p-4 md:p-6 bg-white/70 backdrop-blur-xl rounded-2xl border border-white/40 shadow-sm hover:shadow-md transition-all duration-300">
                                             <div className="flex flex-col gap-2">
-                                                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-1">
-                                                    <h4 className="text-xl md:text-2xl font-black text-brand wrap-break-word">{rec.name}</h4>
-                                                    <span className="px-2.5 py-0.5 bg-blue-100 text-brand text-xs font-bold rounded-full whitespace-nowrap">Потенциал роста</span>
+                                                <div className="flex flex-wrap items-center gap-2 mb-1">
+                                                    <h4 className="text-lg md:text-xl font-black text-brand wrap-break-word max-w-full">{rec.name}</h4>
+                                                    <span className="px-2.5 py-0.5 bg-blue-100 text-brand text-[10px] font-bold rounded-full whitespace-nowrap">Потенциал роста</span>
                                                 </div>
-                                                <p className="text-gray-500 text-sm md:text-lg mb-3">Показатели можно улучшить. План действий:</p>
-                                                <div className="relative p-4 md:p-5 bg-brand/5 rounded-xl md:rounded-2xl border border-brand/10">
-                                                    <p className="text-brand font-medium text-base md:text-lg italic leading-relaxed">{rec.recommendation}</p>
+                                                <p className="text-gray-400 text-xs md:text-sm mb-2">Рекомендация по улучшению показателей:</p>
+                                                <div className="relative p-4 bg-brand/5 rounded-xl border border-brand/10">
+                                                    <p className="text-brand font-medium text-sm md:text-base italic leading-relaxed whitespace-pre-line">{rec.recommendation}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="p-10 border border-dashed border-gray-200 rounded-2xl md:rounded-3xl text-center text-gray-400 text-sm md:text-base">
-                                        Данные появятся после сдачи нескольких нормативов
+                                    <div className="p-8 border border-dashed border-gray-200 rounded-2xl text-center text-gray-400 text-sm md:text-base font-medium">
+                                        Спортсмен отлично справляется со всеми нормативами! Зоны роста появятся при обнаружении отстающих показателей.
                                     </div>
                                 )}
                             </div>
@@ -280,11 +308,11 @@ function ProgressContent() {
                     </section>
                 </div>
             ) : (
-                <div className="text-center p-8 md:p-20 bg-white/60 backdrop-blur-md rounded-3xl md:rounded-4xl shadow-lg border border-white/40">
-                    <p className="pb-6 md:pb-10 text-xl md:text-2xl text-blue-900/40 font-medium italic leading-snug">У вас пока нет привязанных детей или ребенок не выбран.</p>
+                <div className="text-center p-6 md:p-16 bg-white/60 backdrop-blur-md rounded-3xl shadow-lg border border-white/40">
+                    <p className="pb-6 text-lg md:text-xl text-blue-900/50 font-medium italic leading-snug">У вас пока нет привязанных детей или ребенок не выбран.</p>
                     <button 
-                        className="w-full md:w-auto px-5 py-3.5 bg-brand cursor-pointer rounded-xl text-white text-lg md:text-2xl hover:bg-[#41479B] shadow-md hover:shadow-lg transition-all" 
-                        onClick={() => setIsModalOpen(true)}
+                        className="w-full sm:w-auto px-6 py-3 bg-brand cursor-pointer rounded-xl text-white font-semibold text-base hover:bg-[#41479B] shadow-md transition-all" 
+                        onClick={() => router.push('?addClick=true')}
                     >
                         Привязать первого ребенка
                     </button>
@@ -292,8 +320,8 @@ function ProgressContent() {
             )}
 
             <AddChildModal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+                isOpen={isAddModalOpen} 
+                onClose={handleCloseModal} 
                 onSuccess={() => window.location.reload()} 
             />
         </div>

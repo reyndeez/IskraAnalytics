@@ -106,7 +106,6 @@ export function GroupDataModal({ isOpen, onClose, group, onRefresh, mode }: Grou
         }
     };
 
-    // Вычисляем имя для отображения на кнопке селектора
     const selectedCoach = coaches.find(c => c.id === coachId);
     const selectedCoachName = selectedCoach 
         ? `${selectedCoach.firstName} ${selectedCoach.lastName}` 
@@ -145,7 +144,7 @@ export function GroupDataModal({ isOpen, onClose, group, onRefresh, mode }: Grou
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             className="w-full rounded-2xl border-2 border-brand/10 p-4 text-xl outline-none focus:border-brand"
-                            placeholder="Например, СКА-2015"
+                            placeholder="Например, Искра льда"
                             required
                         />
                     </div>

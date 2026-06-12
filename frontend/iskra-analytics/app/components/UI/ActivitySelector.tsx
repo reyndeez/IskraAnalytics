@@ -55,15 +55,15 @@ export function ActivitySelector() {
     const buttonText = activeOption ? activeOption.name : 'Статус';
 
     return (
-        <div className="relative text-brand text-xl font-medium" ref={dropdownRef}>
+        <div className="relative text-brand text-base sm:text-xl font-medium" ref={dropdownRef}>
             {/* Кнопка-переключатель */}
             <button 
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="cursor-pointer flex items-center justify-between gap-3 py-3 px-4 bg-white rounded-2xl shadow-sm min-w-50"
+                className="cursor-pointer flex items-center justify-between gap-2 sm:gap-3 py-2 sm:py-3 px-3 sm:px-4 bg-white rounded-2xl shadow-sm min-w-36 sm:min-w-50"
             >
                 <span>{buttonText}</span>
-                <ChevronIcon isOpen={isOpen} className="w-7 h-7 text-brand"/>
+                <ChevronIcon isOpen={isOpen} className="w-5 h-5 sm:w-7 sm:h-7 text-brand"/>
             </button>
             
             {/* Выпадающее меню */}
@@ -73,7 +73,7 @@ export function ActivitySelector() {
                         <div 
                             key={option.id}
                             onClick={() => handleFilterChange(option.id)}
-                            className={`px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors ${
+                            className={`px-3 sm:px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors ${
                                 activeFilterId === option.id ? 'bg-brand/10 text-brand font-medium' : 'text-muted/70'
                             }`}
                         >

@@ -17,11 +17,12 @@ const SORT_OPTIONS = [
     { id: 'group', name: 'По группе' },
     { id: 'birthDate', name: 'По дате рождения' }
 ];
+
 export default function StudentPage() {
-    return(
-    <Suspense fallback={<div className="text-white">Загрузка...</div>}>
-        <StudentContent />
-    </Suspense>
+    return (
+        <Suspense fallback={<div className="text-white text-xl p-4">Загрузка...</div>}>
+            <StudentContent />
+        </Suspense>
     );
 }
 
@@ -61,32 +62,44 @@ function StudentContent() {
     }, [searchParams]);
 
     return (
-        <div>            
-            <h1 className="text-6xl font-bold text-brand">Панель воспитанников</h1>
-            <div className="mt-10 p-8 bg-brand rounded-4xl">
-                <div className="flex flex-row justify-between">
+        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">            
+            <h1 className="text-3xl sm:text-6xl font-bold text-brand leading-tight">Панель воспитанников</h1>
+            
+            <div className="mt-6 sm:mt-10 p-4 sm:p-8 bg-brand rounded-4xl shadow-xl">
+                {/* Панель фильтров */}
+                <div className="flex flex-col lg:flex-row justify-between gap-4 lg:items-center">
                     {/* Левая часть: Поиск и кнопка создания */}
-                    <div className="flex items-center gap-6">
-                        <SearchInput />
+                    <div className="flex items-center gap-3 sm:gap-6 w-full lg:w-auto">
+                        <div className="flex-1 lg:flex-initial">
+                            <SearchInput />
+                        </div>
                         <button 
                             onClick={() => setIsCreateOpen(true)}
-                            className="cursor-pointer flex items-center justify-center rounded-2xl bg-white p-4 text-brand hover:scale-105 transition-transform"
+                            className="cursor-pointer flex items-center justify-center rounded-2xl bg-white p-3 sm:p-4 text-brand hover:scale-105 transition-transform shrink-0 shadow-md"
                             title="Добавить воспитанника"
                         >
-                            <Plus size={24} />
+                            <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
-                    {/* Правая часть: Активность и сортировка */}
-                    <div className="flex items-end gap-6">
-                        <ActivitySelector />
-                        <SortSelector sorts={SORT_OPTIONS} />                        
-                        <SortToggle />
+                    
+                    {/* Правая часть: Адаптивный перенос без overflow */}
+                    <div className="flex flex-row flex-wrap md:flex-nowrap items-center gap-2 sm:gap-4 justify-start lg:justify-end w-full lg:w-auto shrink-0">
+                        <div className="flex-1 sm:flex-initial min-w-26.25 sm:min-w-35">
+                            <ActivitySelector />
+                        </div>
+                        <div className="flex-1 sm:flex-initial min-w-28.75m:min-w-37.5">
+                            <SortSelector sorts={SORT_OPTIONS} />                        
+                        </div>
+                        <div className="shrink-0">
+                            <SortToggle />
+                        </div>
                     </div>
                 </div>
 
-                <div className="mt-6 flex flex-col gap-4">
+                {/* Список воспитанников */}
+                <div className="mt-6 flex flex-col gap-3 sm:gap-4">
                     {isLoading ? (
-                        <div className="text-white text-center text-2xl py-10 font-medium">Загрузка...</div>
+                        <div className="text-white text-center text-lg sm:text-2xl py-10 font-medium">Загрузка...</div>
                     ) : (
                         studentData?.students?.map((student: any) => (
                             <StudentRow key={student.id} student={student} onRefresh={loadStudents} />
@@ -94,12 +107,12 @@ function StudentContent() {
                     )}
                     
                     {!isLoading && (!studentData?.students || studentData.students.length === 0) && (
-                        <div className="text-white text-center text-2xl py-10 font-medium">Воспитанники не найдены</div>
+                        <div className="text-white text-center text-lg sm:text-2xl py-10 font-medium">Воспитанники не найдены</div>
                     )}
                 </div>
 
                 {/* Блок пагинации */}
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center mt-6 sm:mt-8">
                     <Pagination
                         totalPages={studentData?.totalPages || 1} 
                         currentPage={page} 

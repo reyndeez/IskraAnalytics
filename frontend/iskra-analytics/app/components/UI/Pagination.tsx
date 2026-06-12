@@ -1,4 +1,6 @@
-import { ChevronLeft, ChevronLeftIcon, ChevronRight, ChevronRightIcon } from "lucide-react";
+'use client'
+
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationProps {
@@ -26,17 +28,17 @@ export function Pagination({ totalPages, currentPage} : PaginationProps){
     if (totalPages <= 1) return null;
 
     return(
-        <div className="flex items-center gap-6 mt-8">
+        <div className="flex items-center gap-4 sm:gap-6 mt-6 sm:mt-8 justify-center sm:justify-start">
             <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage <= 1}
                 className="p-2 bg-white rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 transition"
             >
-                <ChevronLeftIcon className="w-6 h-6 text-brand" />
+                <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6 text-brand" />
             </button>
 
-            <div className="flex items-center gap-2">
-                <span className="text-white text-2xl font-bold">
+            <div className="flex items-center gap-2 select-none">
+                <span className="text-white text-xl sm:text-2xl font-bold">
                     {currentPage} / {totalPages}
                 </span>
             </div>
@@ -46,7 +48,7 @@ export function Pagination({ totalPages, currentPage} : PaginationProps){
                 disabled={currentPage >= totalPages}
                 className="p-2 bg-white rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 transition"
             >
-                <ChevronRightIcon className="w-6 h-6 text-brand" />
+                <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6 text-brand" />
             </button>
         </div>
     );

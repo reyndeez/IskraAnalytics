@@ -71,7 +71,6 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
         try {
             const payload = {
                 name,
-                // Используем импортированный маппинг — на бэк летит число!
                 unit: UNIT_TO_NUM_MAP[unit] || 1, 
                 isAscending,
                 description: description.trim() || null,
@@ -95,53 +94,57 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
     const unitOptions = Object.keys(TRANSLATIONS.units);
 
     return createPortal(
-        <div className="fixed inset-0 z-110 flex items-center justify-center bg-black/60 backdrop-blur-md p-4" onClick={onClose}>
-            <div className="relative bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-110 flex items-center justify-center bg-black/60 backdrop-blur-md p-4 cursor-pointer" onClick={onClose}>
+            <div className="relative bg-white w-full max-w-2xl rounded-4xl sm:rounded-[40px] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col cursor-default animate-in zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
                 
-                <div className="bg-brand p-8 text-white relative shrink-0">
-                    <button onClick={onClose} className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors cursor-pointer">
-                        <X size={32} />
+                {/* Шапка */}
+                <div className="bg-brand p-6 sm:p-8 text-white relative shrink-0">
+                    <button onClick={onClose} className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/50 hover:text-white transition-colors cursor-pointer">
+                        <X className="w-6 h-6 sm:w-8 sm:h-8" />
                     </button>
-                    <div className="flex items-center gap-6">
-                        <div className="bg-white/20 p-4 rounded-3xl">
-                            <BarChart3 size={48} />
+                    <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="bg-white/20 p-3 sm:p-4 rounded-3xl shrink-0">
+                            <BarChart3 className="w-8 h-8 sm:w-12 sm:h-12" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold">
+                            <h2 className="text-xl sm:text-3xl font-bold leading-tight">
                                 {mode === 'create' ? 'Создание метрики' : 'Редактирование'}
                             </h2>
-                            <p className="text-white/80 text-xl">Настройка спортивных нормативов</p>
+                            <p className="text-white/80 text-sm sm:text-xl mt-0.5 sm:mt-1">Настройка спортивных нормативов</p>
                         </div>
                     </div>
                 </div>
 
-                <form onSubmit={handleSave} className="p-10 space-y-6 overflow-y-auto flex-1">
-                    <div className="space-y-2">
-                        <label className="text-xl font-bold text-brand">Название метрики *</label>
+                {/* Форма */}
+                <form onSubmit={handleSave} className="p-6 sm:p-10 space-y-5 sm:space-y-6 overflow-y-auto flex-1">
+                    {/* Название */}
+                    <div className="space-y-1.5 sm:space-y-2">
+                        <label className="text-lg sm:text-xl font-bold text-brand block">Название метрики *</label>
                         <input 
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full rounded-2xl border-2 border-brand/10 p-4 text-xl outline-none focus:border-brand"
+                            className="w-full rounded-2xl border-2 border-brand/10 p-3 sm:p-4 text-base sm:text-xl outline-none focus:border-brand transition-colors"
                             placeholder="Например, Бег на 30 метров"
                             required
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-xl font-bold text-brand">Единица измерения</label>
+                    {/* Единица измерения */}
+                    <div className="space-y-1.5 sm:space-y-2">
+                        <label className="text-lg sm:text-xl font-bold text-brand block">Единица измерения</label>
                         <div className="relative" ref={selectRef}>
                             <button
                                 type="button"
                                 onClick={() => setIsSelectOpen(!isSelectOpen)}
-                                className="cursor-pointer flex items-center justify-between gap-4 w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-xl font-medium text-gray-900 shadow-sm hover:bg-gray-50 transition-colors"
+                                className="cursor-pointer flex items-center justify-between gap-4 w-full bg-white border border-gray-200 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-xl font-medium text-gray-900 shadow-sm hover:bg-gray-50 transition-colors"
                             >
                                 <span>{TRANSLATIONS.units[unit] || "сек."}</span>
-                                <ChevronIcon isOpen={isSelectOpen} className="w-6 h-6 text-brand" />
+                                <ChevronIcon isOpen={isSelectOpen} className="w-5 h-5 sm:w-6 sm:h-6 text-brand" />
                             </button>
 
                             {isSelectOpen && (
-                                <div className="absolute mt-2 w-full bg-white border border-gray-200 rounded-2xl shadow-lg z-150 overflow-hidden max-h-60 overflow-y-auto">
+                                <div className="absolute mt-2 w-full bg-white border border-gray-200 rounded-2xl shadow-lg z-150 overflow-hidden max-h-48 sm:max-h-60 overflow-y-auto">
                                     {unitOptions.map((u) => (
                                         <div
                                             key={u}
@@ -149,7 +152,7 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
                                                 setUnit(u);
                                                 setIsSelectOpen(false);
                                             }}
-                                            className={`px-6 py-4 text-lg cursor-pointer hover:bg-gray-50 transition-colors ${
+                                            className={`px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg cursor-pointer hover:bg-gray-50 transition-colors ${
                                                 unit === u ? 'bg-brand/10 text-brand font-medium' : 'text-gray-700'
                                             }`}
                                         >
@@ -161,16 +164,17 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
                         </div>
                     </div>
 
-                    <div className="space-y-3">
-                        <label className="text-xl font-bold text-brand flex items-center gap-2">
-                            <Activity size={24} /> Критерий лучшего результата
+                    {/* Критерий */}
+                    <div className="space-y-2.5 sm:space-y-3">
+                        <label className="text-lg sm:text-xl font-bold text-brand flex items-center gap-2">
+                            <Activity className="w-5 h-5 sm:w-6 sm:h-6" /> Критерий лучшего результата
                         </label>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             <button
                                 type="button"
                                 onClick={() => setIsAscending(true)}
-                                className={`py-4 rounded-2xl text-lg font-bold border-2 transition-all cursor-pointer ${
-                                    isAscending ? 'bg-brand text-white border-brand' : 'bg-white text-muted border-gray-100'
+                                className={`py-3 sm:py-4 rounded-2xl text-sm sm:text-lg font-bold border-2 transition-all cursor-pointer ${
+                                    isAscending ? 'bg-brand text-white border-brand shadow-md shadow-brand/10' : 'bg-white text-muted border-gray-100 hover:border-brand/30'
                                 }`}
                             >
                                 Меньше — лучше (Время)
@@ -178,8 +182,8 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
                             <button
                                 type="button"
                                 onClick={() => setIsAscending(false)}
-                                className={`py-4 rounded-2xl text-lg font-bold border-2 transition-all cursor-pointer ${
-                                    !isAscending ? 'bg-brand text-white border-brand' : 'bg-white text-muted border-gray-100'
+                                className={`py-3 sm:py-4 rounded-2xl text-sm sm:text-lg font-bold border-2 transition-all cursor-pointer ${
+                                    !isAscending ? 'bg-brand text-white border-brand shadow-md shadow-brand/10' : 'bg-white text-muted border-gray-100 hover:border-brand/30'
                                 }`}
                             >
                                 Больше — лучше (Повторения, См)
@@ -187,44 +191,47 @@ export function MetricDataModal({ isOpen, onClose, metric, onRefresh, mode }: Me
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-xl font-bold text-brand flex items-center gap-2">
-                            <FileText size={24} /> Описание выполнения
+                    {/* Описание */}
+                    <div className="space-y-1.5 sm:space-y-2">
+                        <label className="text-lg sm:text-xl font-bold text-brand flex items-center gap-2">
+                            <FileText className="w-5 h-5 sm:w-6 sm:h-6" /> Описание выполнения
                         </label>
                         <textarea 
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             rows={3}
-                            className="w-full rounded-2xl border-2 border-brand/10 p-4 text-xl outline-none focus:border-brand resize-none"
+                            className="w-full rounded-2xl border-2 border-brand/10 p-3 sm:p-4 text-base sm:text-xl outline-none focus:border-brand resize-none transition-colors"
                             placeholder="Опишите технику выполнения теста..."
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-xl font-bold text-brand flex items-center gap-2">
-                            <HelpCircle size={24} /> Рекомендации по развитию
+                    {/* Рекомендации */}
+                    <div className="space-y-1.5 sm:space-y-2">
+                        <label className="text-lg sm:text-xl font-bold text-brand flex items-center gap-2">
+                            <HelpCircle className="w-5 h-5 sm:w-6 sm:h-6" /> Рекомендации по развитию
                         </label>
                         <textarea 
                             value={recommendation}
                             onChange={(e) => setRecommendation(e.target.value)}
                             rows={3}
-                            className="w-full rounded-2xl border-2 border-brand/10 p-4 text-xl outline-none focus:border-brand resize-none"
+                            className="w-full rounded-2xl border-2 border-brand/10 p-3 sm:p-4 text-base sm:text-xl outline-none focus:border-brand resize-none transition-colors"
                             placeholder="Советы по улучшению данного показателя..."
                         />
                     </div>
 
-                    <div className="pt-4 flex flex-col gap-4">
+                    {/* Действия */}
+                    <div className="pt-3 sm:pt-4 flex flex-col gap-3 sm:gap-4 shrink-0">
                         <button
                             type="submit"
                             disabled={isSaving}
-                            className="w-full bg-brand text-white py-5 rounded-2xl font-bold text-2xl cursor-pointer disabled:opacity-50"
+                            className="w-full bg-brand text-white py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-110 transition-all shadow-xl shadow-brand/20"
                         >
                             {isSaving ? "Сохранение..." : mode === 'create' ? "Создать метрику" : "Сохранить изменения"}
                         </button>
                         <button 
                             type="button"
                             onClick={onClose} 
-                            className="w-full text-gray-400 text-2xl font-medium py-4 border rounded-2xl hover:text-brand transition-colors cursor-pointer"
+                            className="w-full text-gray-400 text-lg sm:text-2xl font-medium py-3 sm:py-4 border rounded-2xl hover:text-brand transition-colors cursor-pointer"
                         >
                             Отмена
                         </button>

@@ -17,12 +17,13 @@ const SORT_OPTIONS = [
     { id: 'date', name: 'По дате регистрации'},
     { id: 'role', name: 'По роли'},
     { id: 'name', name: 'По имени'}
-]
+];
+
 export default function UsersPage() {
-    return(
-    <Suspense fallback={<div className="text-white">Загрузка...</div>}>
-        <UsersContent />
-    </Suspense>
+    return (
+        <Suspense fallback={<div className="text-white text-xl p-4">Загрузка...</div>}>
+            <UsersContent />
+        </Suspense>
     );
 }
 
@@ -30,7 +31,6 @@ function UsersContent() {
     const [roles, setRoles] = useState<RoleResponse[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const searchParams = useSearchParams();
-
     const [userData, setUserData] = useState<UserPagedResponse | null>(null);
 
     const search = searchParams.get('search') || "";
@@ -40,13 +40,12 @@ function UsersContent() {
     const page = Number(searchParams.get('page')) || 1;
 
     const loadRolesData = async () => {
-        try{
+        try {
             setIsLoading(true);
             const data = await RoleService.getAllRoles();
-
             const allRolesOption = {id: '', name: 'Все роли'};
-            setRoles([allRolesOption, ...data])
-        } catch(error){
+            setRoles([allRolesOption, ...data]);
+        } catch (error) {
             console.error(error);            
         } finally {
             setIsLoading(false);
@@ -80,31 +79,38 @@ function UsersContent() {
         loadUsers();
     }, [searchParams]);
 
-    return(
-        <div>            
-            <h1 className="text-6xl font-bold text-brand">Панель пользователей</h1>
-            {/* Панель */}
-            <div className="mt-10 p-8 bg-brand rounded-4xl">
-                {/* Верхний ряд */}
-                <div className="flex flex-row justify-between">
-                    {/* Левая часть */}
-                    <div className="flex items-start gap-6">
-                        <SearchInput />
+    return (
+        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">            
+            <h1 className="text-3xl sm:text-6xl font-bold text-brand leading-tight">Панель пользователей</h1>
+            
+            <div className="mt-6 sm:mt-10 p-4 sm:p-8 bg-brand rounded-4xl shadow-xl">
+                {/* Панель фильтров */}
+                <div className="flex flex-col lg:flex-row justify-between gap-4 lg:items-center">
+                    {/* Левая часть: Поиск */}
+                    <div className="flex items-center gap-3 sm:gap-6 w-full lg:w-auto">
+                        <div className="flex-1 lg:flex-initial">
+                            <SearchInput />
+                        </div>
                     </div>
-                    {/* Правая часть */}
-                    <div className="flex items-end gap-6">
-                        {/* Фильтр по роли */}
-                        <RoleSelector roles={roles}/>
-                        {/* Сортировка */}
-                        <SortSelector sorts={SORT_OPTIONS}/>                        
-                        {/* По возрастанию/убыванию */}
-                        <SortToggle/>
+                    
+                    {/* Правая часть: Селектор ролей и сортировка монолитно с безопасным переносом строк */}
+                    <div className="flex flex-row flex-wrap md:flex-nowrap items-center gap-2 sm:gap-4 justify-start lg:justify-end w-full lg:w-auto shrink-0">
+                        <div className="flex-1 sm:flex-initial min-w-26.25 sm:min-w-35">
+                            <RoleSelector roles={roles}/>
+                        </div>
+                        <div className="flex-1 sm:flex-initial min-w-28.75 sm:min-w-37.5">
+                            <SortSelector sorts={SORT_OPTIONS}/>                        
+                        </div>
+                        <div className="shrink-0">
+                            <SortToggle/>
+                        </div>
                     </div>
                 </div>
+
                 {/* Данные пользователей */}
-                <div className="mt-6 flex flex-col gap-4">
+                <div className="mt-6 flex flex-col gap-3 sm:gap-4">
                     {isLoading ? (
-                        <div className="text-white text-center text-2xl py-10 font-medium">Загрузка...</div>
+                        <div className="text-white text-center text-lg sm:text-2xl py-10 font-medium">Загрузка...</div>
                     ) : (
                         userData?.users.map((user) => (
                             <UserRow key={user.id} user={user} onRefresh={loadUsers}/>
@@ -112,11 +118,12 @@ function UsersContent() {
                     )}
                     
                     {!isLoading && userData?.users.length === 0 && (
-                        <div className="text-white text-center text-2xl py-10 font-medium">Пользователи не найдены</div>
+                        <div className="text-white text-center text-lg sm:text-2xl py-10 font-medium">Пользователи не найдены</div>
                     )}
                 </div>
-                {/* Страницы */}
-                <div className="flex justify-center mt-8">
+
+                {/* Страницы пагинации */}
+                <div className="flex justify-center mt-6 sm:mt-8">
                     <Pagination
                         totalPages={userData?.totalPages || 1} 
                         currentPage={page} 

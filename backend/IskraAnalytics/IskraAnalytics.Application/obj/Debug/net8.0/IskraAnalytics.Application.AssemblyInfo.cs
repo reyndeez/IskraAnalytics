@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IskraAnalytics.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4fd83752c2b940602a0124509f72d3ec3c4bb99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcab6fff518d8a427826eb4f0e2a8cf6269a312b")]
 [assembly: System.Reflection.AssemblyProductAttribute("IskraAnalytics.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IskraAnalytics.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
