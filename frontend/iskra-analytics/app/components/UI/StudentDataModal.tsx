@@ -195,7 +195,7 @@ export function StudentDataModal({ isOpen, onClose, student, onRefresh, mode }: 
                     
                     {/* Фамилия */}
                     <div className="space-y-1 sm:space-y-2">
-                        <label className="text-base sm:text-xl font-bold text-brand">Faмилия</label>
+                        <label className="text-base sm:text-xl font-bold text-brand">Фaмилия</label>
                         <input 
                             type="text"
                             value={lastName}
@@ -271,7 +271,6 @@ export function StudentDataModal({ isOpen, onClose, student, onRefresh, mode }: 
                                                 locale={ru}
                                                 
                                                 captionLayout="dropdown"
-                                                // Динамические границы диапазона (авто-расширение)
                                                 startMonth={new Date(startYear, 0)}
                                                 endMonth={new Date(endYear, 11)}
                                                 

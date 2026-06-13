@@ -99,6 +99,44 @@ function StudentDetailsModal({ studentId, onClose }: { studentId: string; onClos
 
     if (!mounted) return null;
 
+    const handleCopyCode = () => {
+        if (!details?.accessCode) return;
+
+        const textToCopy = details.accessCode;
+
+        // 1. Попытка через современный Clipboard API
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => triggerSuccess())
+                .catch(() => fallbackCopy(textToCopy)); // Если ошибка (например, HTTP), пробуем fallback
+        } else {
+            // 2. Резервный способ для старых браузеров или HTTP
+            fallbackCopy(textToCopy);
+        }
+    };
+
+    const triggerSuccess = () => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    const fallbackCopy = (text: string) => {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            triggerSuccess();
+        } catch (err) {
+            console.error('Ошибка копирования', err);
+        }
+        document.body.removeChild(textArea);
+    };
+
     return createPortal(
         <div 
             className="fixed inset-0 z-110 flex items-center justify-center bg-black/60 backdrop-blur-md p-4 cursor-pointer"
@@ -172,13 +210,7 @@ function StudentDetailsModal({ studentId, onClose }: { studentId: string; onClos
                                 
                                 {/* ИНВАЙТ-КОД С КОПИРОВАНИЕМ */}
                                 <div 
-                                    onClick={() => {
-                                        if (details?.accessCode) {
-                                            navigator.clipboard.writeText(details.accessCode);
-                                            setCopied(true);
-                                            setTimeout(() => setCopied(false), 2000);
-                                        }
-                                    }}
+                                    onClick={handleCopyCode}
                                     className="flex items-center justify-between bg-brand/5 p-4 rounded-2xl border-2 border-brand/10 hover:border-brand/30 transition-all cursor-pointer group select-none"
                                     title="Нажмите, чтобы скопировать"
                                 >
