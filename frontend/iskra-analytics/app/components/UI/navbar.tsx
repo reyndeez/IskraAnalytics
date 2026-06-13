@@ -93,12 +93,12 @@ export default function Navbar() {
         Coach: [
             {label: "Мои группы", href: "/coach/my-groups"},
             {label: "Журнал", href: "/coach/measurements"},
-            {label: "Аналитика", href: "/coach/analytics"},
+            // {label: "Аналитика", href: "/coach/analytics"},
         ],
         User: [
             {label: "Прогресс", href: "/user/progress"},
             {label: "Рейтинг", href: "/user/rating"},
-            {label: "Календарь", href: "/user/calendar"},        
+            // {label: "Календарь", href: "/user/calendar"},        
         ],
         Admin: [
             {label: "Панель администратора", href: "/admin/groups"}
@@ -195,9 +195,9 @@ export default function Navbar() {
 
                             {isProfileOpen && (
                                 <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-lg border border-gray-100 py-2 px-2 z-50">
-                                    <Link href="/profile" onClick={() => setIsProfileOpen(false)} className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 transition-colors">
+                                    {/* <Link href="/profile" onClick={() => setIsProfileOpen(false)} className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 transition-colors">
                                         Профиль
-                                    </Link>
+                                    </Link> */}
                                     <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-xl text-red-600 hover:bg-gray-50 transition-colors cursor-pointer">
                                         Выйти
                                     </button>

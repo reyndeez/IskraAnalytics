@@ -33,7 +33,6 @@ function ProgressContent() {
     const [children, setChildren] = useState<StudentResponse[]>([]);
     const [metrics, setMetrics] = useState<Metric[]>([]);
 
-    // Локальный стейт для мгновенной синхронизации выбранного ребенка
     const [activeStudentId, setActiveStudentId] = useState<string | null>(null);
 
     const [loading, setLoading] = useState(true);
@@ -125,14 +124,12 @@ function ProgressContent() {
         initializePage();
     }, [router]);
 
-    // Синхронизируем локальный стейт, если ID изменился в URL (например, через ChildSwitcher)
     useEffect(() => {
         if (studentId) {
             setActiveStudentId(studentId);
         }
     }, [studentId]);
 
-    // Следим за изменением параметров активного студента и метрик
     useEffect(() => {
         if (activeStudentId) {
             fetchAnalytics(activeStudentId);
@@ -152,12 +149,12 @@ function ProgressContent() {
     };
 
     return (
-        <div className="p-4 sm:p-8 pt-28 md:pt-48 px-4 sm:px-[10%] md:px-[15%] mx-auto max-w-7xl">
+        <div className="p-4 sm:p-8 pt-32 md:pt-48 px-[4%] sm:px-[10%] md:px-[15%] mx-auto w-full max-w-480">
             {/* Заголовок страницы */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 md:mb-12">
                 <div className="space-y-1 max-w-full wrap-break-word">
-                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-brand">Прогресс</h1>
-                    <p className="text-brand/60 text-base sm:text-xl md:text-2xl font-medium leading-tight mt-2">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand">Прогресс</h1>
+                    <p className="text-xl sm:text-2xl md:text-4xl mt-2 font-medium text-brand/60">
                         Мониторинг личных достижений спортсмена
                     </p>
                 </div>
@@ -169,7 +166,7 @@ function ProgressContent() {
             {loading ? (
                 <div className="flex flex-col items-center justify-center p-12 md:p-20 bg-white/40 backdrop-blur-md rounded-3xl md:rounded-4xl border border-white/40">
                     <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-brand border-t-transparent rounded-full animate-spin"></div>
-                    <p className="mt-4 text-brand font-semibold text-sm sm:text-base">Загружаем данные профиля...</p>
+                    <p className="mt-4 text-brand font-semibold text-sm md:text-2xl">Загружаем данные профиля...</p>
                 </div>
             ) : activeStudentId ? (
                 <div className="flex flex-col gap-6 md:gap-8">
@@ -182,11 +179,11 @@ function ProgressContent() {
                                     {/* Карточка спортсмена */}
                                     <div className="p-6 md:p-8 bg-white/70 backdrop-blur-xl rounded-3xl md:rounded-4xl border border-white/40 shadow-xl shadow-blue-900/5 flex flex-col justify-between min-h-60 transition-all hover:shadow-2xl hover:shadow-blue-900/10">
                                         <div className="flex justify-between items-center mb-4">
-                                            <p className="text-sm md:text-base font-extrabold text-brand uppercase tracking-wider">Карточка спортсмена</p>
+                                            <p className="text-sm md:text-xl font-extrabold text-brand uppercase tracking-wider">Карточка спортсмена</p>
                                         </div>
                                         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8">
                                             <div className="flex flex-col items-center shrink-0">
-                                                <div className="bg-brand text-white w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl font-black shadow-xl shadow-blue-200 uppercase">
+                                                <div className="bg-brand text-white w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-4xl font-black shadow-xl shadow-blue-200 uppercase">
                                                     {currentStudent?.firstName?.[0] || '?' }
                                                 </div>
                                                 <div className="mt-3 px-3 py-1 bg-brand rounded-xl shadow-lg shadow-blue-100 max-w-40">
@@ -197,7 +194,7 @@ function ProgressContent() {
                                             </div>
                                             <div className="flex flex-col space-y-2 w-full min-w-0">
                                                 <div className="wrap-break-word">
-                                                    <p className="text-sm md:text-base font-medium text-gray-400">{currentStudent?.lastName}</p>
+                                                    <p className="text-base md:text-2xl font-medium text-gray-400">{currentStudent?.lastName}</p>
                                                     <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">
                                                         <span className="text-brand">{currentStudent?.firstName}</span>
                                                     </h2>
@@ -226,11 +223,11 @@ function ProgressContent() {
                                                         <p className="text-sm md:text-base font-extrabold text-blue-200 uppercase tracking-wider">Текущий статус</p>
                                                         <div className="flex items-baseline flex-wrap gap-2 md:gap-3 mt-4">
                                                             <span className="text-5xl md:text-7xl font-black italic tracking-tighter">
-                                                                #{myRating?.rank || '—'}
+                                                                #{myRating?.rank || '-'}
                                                             </span>
                                                             <div className="flex flex-col">
-                                                                <span className="text-base md:text-lg text-blue-200 font-medium">в группе</span>
-                                                                <span className="text-[11px] md:text-xs text-blue-300">{myRating?.score || 0} баллов</span>
+                                                                <span className="text-base md:text-xl text-blue-200 font-medium">в группе</span>
+                                                                <span className="text-[11px] md:text-sm text-blue-300">{myRating?.score || 0} баллов</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -248,8 +245,8 @@ function ProgressContent() {
                         <div className="p-4 md:p-6 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/40 shadow-xl shadow-blue-900/5">
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                                 <div>
-                                    <h3 className="text-base md:text-lg font-extrabold text-brand uppercase tracking-wider">Динамика показателей</h3>
-                                    <p className="text-sm md:text-base text-gray-500 font-medium">Прогресс по ключевым упражнениям</p>
+                                    <h3 className="text-base md:text-2xl font-extrabold text-brand uppercase tracking-wider">Динамика показателей</h3>
+                                    <p className="text-sm md:text-xl text-gray-500 font-medium">Прогресс по ключевым упражнениям</p>
                                 </div>
                                 <div className="w-full sm:w-auto relative z-30">
                                     <MetricSelector metrics={metrics} />
@@ -264,7 +261,7 @@ function ProgressContent() {
                                     <ProgressChart data={chartData} />
                                 ) : (
                                     <div className="flex items-center justify-center h-full border border-dashed border-gray-200 rounded-2xl p-4">
-                                        <p className="text-brand/60 font-medium text-sm md:text-base text-center">Недостаточно данных для построения графика (требуется от 3 замеров)</p>
+                                        <p className="text-brand/60 font-medium text-sm md:text-xl text-center">Недостаточно данных для построения графика (требуется от 3 замеров)</p>
                                     </div>
                                 )}
                             </div>
@@ -275,8 +272,8 @@ function ProgressContent() {
                     <section className="w-full">
                         <div className="p-4 md:p-6 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/40 shadow-xl shadow-blue-900/5">
                             <div className="mb-4">
-                                <h3 className="text-base md:text-lg font-extrabold text-brand uppercase tracking-wider">Зоны роста</h3>
-                                <p className="text-sm md:text-base text-gray-500 font-medium">Интеллектуальные рекомендации по развитию</p>
+                                <h3 className="text-base md:text-2xl font-extrabold text-brand uppercase tracking-wider">Зоны роста</h3>
+                                <p className="text-sm md:text-xl text-gray-500 font-medium">Интеллектуальные рекомендации по развитию</p>
                             </div>
                             <div className="w-full mt-4 space-y-4">
                                 {isRecLoading ? (
@@ -299,7 +296,7 @@ function ProgressContent() {
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="p-8 border border-dashed border-gray-200 rounded-2xl text-center text-gray-400 text-sm md:text-base font-medium">
+                                    <div className="p-8 border border-dashed border-gray-200 rounded-2xl text-center text-brand/60 text-sm md:text-xl font-medium">
                                         Спортсмен отлично справляется со всеми нормативами! Зоны роста появятся при обнаружении отстающих показателей.
                                     </div>
                                 )}
