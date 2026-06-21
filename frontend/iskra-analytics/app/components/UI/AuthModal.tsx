@@ -65,12 +65,17 @@ export default function AuthModal({ isOpen, onClose, initialTab }: AuthModalProp
         confirmPassword: '',
         firstName: '',
         lastName: '',
-        role: 'Parent'
+        role: 'Parent',
+        consent: false
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value, type, checked } = e.target;
+
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
     };
 
     const handleAuthSuccess = (token: string) => {
@@ -132,6 +137,11 @@ export default function AuthModal({ isOpen, onClose, initialTab }: AuthModalProp
                 const letters = /[a-zA-Za-Я]/;
                 if (!letters.test(formData.password)) {
                     setError("Пароль должен содержать хотя бы одну букву");
+                    setIsLoading(false);
+                    return;
+                }
+                if (!formData.consent) {
+                    setError("Необходимо согласие на обработку персональных данных");
                     setIsLoading(false);
                     return;
                 }
@@ -233,9 +243,32 @@ export default function AuthModal({ isOpen, onClose, initialTab }: AuthModalProp
                     <div className="flex flex-col space-y-2">
                         <label className="text-xl text-brand font-medium">Повторите пароль</label>
                         <input name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} type="password" placeholder="••••••••" className="w-full p-4 mb-4 border rounded-xl border-brand" required />
+
+                        <div className="flex items-start gap-3 mt-2 mb-4">
+                            <input
+                                type="checkbox"
+                                name="consent"
+                                checked={formData.consent}
+                                onChange={handleChange}
+                                className="mt-1 w-5 h-5 accent-brand cursor-pointer"
+                            />
+                            <label className="text-sm text-muted leading-snug">
+                                Я даю согласие на обработку персональных данных в соответствии с{" "}
+                                <a
+                                    href="/privacy"
+                                    target="_blank"
+                                    className="text-brand underline hover:opacity-80"
+                                >
+                                    политикой конфиденциальности
+                                </a>
+                            </label>
+                        </div>
                     </div> 
                 )}
                 {error && <p className="text-red-500 text-sm font-medium mb-4 text-center">{error}</p>}
+
+
+
                 <div className="pt-5 flex justify-center">
                     <button 
                         type="submit" 

@@ -98,8 +98,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 718,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 17,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -170,8 +178,7 @@
               "RelativeToolTip": "IskraAnalytics.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:54:43.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T16:54:43.937Z"
             },
             {
               "$type": "Document",
@@ -289,7 +296,7 @@
               "RelativeDocumentMoniker": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
               "ToolTip": "D:\\IskraAnalytics\\backend\\IskraAnalytics\\IskraAnalytics.API\\Controllers\\StudentsController.cs",
               "RelativeToolTip": "IskraAnalytics.API\\Controllers\\StudentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-06T12:46:44.173Z",
               "EditorCaption": ""

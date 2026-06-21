@@ -81,9 +81,8 @@ function RatingContent() {
         };
 
         initializePage();
-    }, []); // Запускается только при монтировании
+    }, []);
 
-    // Реакция на смену параметров в URL
     useEffect(() => {
         if (studentId && metricId) {
             loadLeaderboard(studentId, metricId);
